@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Living Moema · Demo Portal Wi-Fi · L5 Lilás</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brown:#4E3D33;
+  --brown-lt:#6B5347;
+  --l5:#8C4799;
+  --creme:#F0EDE8;
+  --border:#E5E0D8;
+  --text:#1A1209;
+  --dim:#7A6B5E;
+  --bg:#EDE9E3;
+  --green:#22C55E;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; overflow:hidden; font-family:'Barlow',sans-serif; }
+body { background:var(--bg); display:flex; flex-direction:column; }
+
+/* HEADER */
+.header {
+  background:#fff; border-bottom:1px solid var(--border);
+  height:52px; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-shrink:0;
+}
+.header-left { display:flex; align-items:center; gap:14px; }
+.h-div { width:1px; height:18px; background:var(--border); }
+.h-sub { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--dim); }
+.h-tag {
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500;
+  background:#F3EDF8; color:var(--l5); padding:4px 12px; border-radius:20px;
+  border:1px solid #DDD0E8;
+}
+
+/* LAYOUT */
+.layout { display:grid; grid-template-columns:210px 1fr 270px; flex:1; overflow:hidden; min-height:0; }
+
+/* SIDEBAR */
+.sidebar {
+  background:#fff; border-right:1px solid var(--border);
+  display:flex; flex-direction:column; overflow-y:auto; padding:20px 0 0;
+}
+.sb-lbl { font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:700; color:var(--dim); letter-spacing:1.2px; text-transform:uppercase; padding:0 20px 10px; }
+.nav-item {
+  display:flex; align-items:center; gap:10px; padding:9px 20px;
+  cursor:pointer; border-left:3px solid transparent; transition:background .12s;
+}
+.nav-item:hover { background:#FAF8F5; }
+.nav-item.active { background:#FDF9F6; border-left-color:var(--brown); }
+.nav-num {
+  font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:700;
+  width:22px; height:22px; border-radius:7px;
+  background:#F3EEE8; color:var(--dim);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.nav-item.active .nav-num { background:var(--brown); color:#fff; }
+.nav-label { font-size:13.5px; font-weight:500; color:var(--text); }
+.nav-item.active .nav-label { color:var(--brown); font-weight:600; }
+.sb-note { margin-top:auto; padding:16px 20px; border-top:1px solid var(--border); font-size:12px; color:var(--dim); line-height:1.6; }
+.sb-note strong { display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; color:var(--text); margin-bottom:4px; }
+
+/* CENTER */
+.center { display:flex; align-items:center; justify-content:center; padding:20px; overflow:hidden; }
+
+/* DEVICE */
+.device {
+  position:relative; width:290px;
+  background:#1a1a1a; border-radius:40px; padding:12px;
+  box-shadow:0 0 0 2px #2a2a2a, 0 40px 100px rgba(0,0,0,.45);
+}
+.device-camera {
+  position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  width:12px; height:12px; background:#111; border-radius:50%; z-index:100;
+}
+.device-screen {
+  background:#fff; border-radius:30px; height:590px; overflow:hidden; position:relative;
+}
+
+/* SCREENS */
+.screen { position:absolute; inset:0; display:none; overflow-y:auto; overflow-x:hidden; }
+.screen.active { display:flex; flex-direction:column; }
+
+/* STATUS BAR */
+.statusbar {
+  height:30px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 14px; font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600;
+  flex-shrink:0;
+}
+
+/* S1 — SPLASH */
+#s1 { background:var(--creme); }
+#s1 .statusbar { color:#999; }
+.splash-body {
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:0 20px 20px; text-align:center; position:relative;
+}
+.splash-badge {
+  font-family:'IBM Plex Mono',monospace; font-size:8px; color:#999;
+  letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px;
+}
+.splash-title {
+  font-family:'Barlow Condensed',sans-serif; font-weight:700;
+  font-size:22px; color:#111; line-height:1.2; margin-bottom:8px;
+  text-transform:uppercase; letter-spacing:.3px;
+}
+.splash-sub { font-size:11px; color:#666; margin-bottom:28px; }
+.btn-splash {
+  background:var(--brown); color:#fff; border:none; border-radius:6px;
+  padding:12px 28px; font-family:'Barlow',sans-serif; font-size:13px;
+  font-weight:700; cursor:pointer; width:100%; max-width:200px;
+}
+.splash-footer {
+  position:absolute; bottom:14px;
+  font-family:'IBM Plex Mono',monospace; font-size:9px; color:#bbb;
+}
+
+/* S2 — FORM */
+#s2 { background:#fff; }
+#s2 .statusbar { background:var(--brown); color:rgba(255,255,255,.7); }
+.form-header {
+  background:var(--brown); padding:8px 14px 10px;
+  display:flex; align-items:center; gap:8px; flex-shrink:0;
+}
+.form-header-right { font-family:'Barlow',sans-serif; font-size:9px; color:rgba(255,255,255,.6); margin-left:auto; }
+.form-body { padding:16px 14px; flex:1; overflow-y:auto; }
+.form-greeting { font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700; color:#111; margin-bottom:14px; text-transform:uppercase; }
+.fg { margin-bottom:10px; }
+.fg label { display:block; font-size:10px; font-weight:600; color:#666; margin-bottom:3px; text-transform:uppercase; letter-spacing:.05em; }
+.fc {
+  width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:6px;
+  font-size:13px; font-family:'Barlow',sans-serif; color:#333;
+  background:#fff; outline:none;
+}
+.fc:focus { border-color:var(--brown); }
+.btn-form {
+  width:100%; padding:12px; background:var(--brown); color:#fff; border:none;
+  border-radius:6px; font-size:13px; font-weight:700; font-family:'Barlow',sans-serif;
+  cursor:pointer; margin-bottom:6px;
+}
+.btn-form-skip {
+  width:100%; padding:6px; background:transparent; color:rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.2); border-radius:6px; font-size:11px;
+  font-family:'Barlow',sans-serif; cursor:pointer;
+}
+.form-bottom { padding:8px 14px 12px; background:#fff; border-top:1px solid #f3f4f6; flex-shrink:0; }
+
+/* S3 — OFERTA */
+#s3 { background:var(--brown); }
+#s3 .statusbar { background:var(--brown); color:rgba(255,255,255,.5); }
+.offer-top {
+  background:var(--brown); padding:10px 14px 0; flex-shrink:0;
+  display:flex; align-items:center; gap:8px;
+}
+.offer-badge {
+  font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:.1em;
+  text-transform:uppercase; color:rgba(255,255,255,.45);
+  border:1px solid rgba(255,255,255,.2); border-radius:4px; padding:2px 7px;
+}
+.offer-visual {
+  background:linear-gradient(160deg,#3A2A22 0%,#5C3E31 50%,#7A5040 100%);
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; position:relative; overflow:hidden;
+}
+.offer-visual::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 30% 40%, rgba(140,71,153,.18) 0%, transparent 60%);
+}
+.offer-tagline {
+  font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px;
+  color:#fff; text-transform:uppercase; text-align:center; line-height:1.2;
+  margin-top:12px; padding:0 20px; position:relative; z-index:1;
+}
+.offer-sub {
+  font-size:11px; color:rgba(255,255,255,.65); text-align:center;
+  margin-top:6px; padding:0 24px; position:relative; z-index:1;
+}
+.offer-bottom { padding:10px 14px 12px; background:var(--brown); flex-shrink:0; }
+.btn-offer {
+  width:100%; padding:12px; background:var(--creme); color:var(--brown);
+  border:none; border-radius:6px; font-size:13px; font-weight:700;
+  font-family:'Barlow',sans-serif; cursor:pointer; margin-bottom:6px;
+}
+.btn-offer-skip {
+  width:100%; padding:6px; background:transparent; color:rgba(255,255,255,.4);
+  border:none; font-size:11px; font-family:'Barlow',sans-serif;
+  cursor:pointer; text-decoration:underline;
+}
+
+/* S4 — CONFIRMAÇÃO */
+#s4 { background:#fff; }
+#s4 .statusbar { background:var(--brown); color:rgba(255,255,255,.7); }
+.confirm-header { background:var(--brown); padding:8px 14px 10px; flex-shrink:0; }
+.confirm-body {
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:20px;
+}
+.confirm-check {
+  width:72px; height:72px; border-radius:50%;
+  background:var(--green); display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px;
+}
+.confirm-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; color:#111; margin-bottom:6px; text-align:center; text-transform:uppercase; }
+.confirm-msg { font-size:12px; color:#666; text-align:center; line-height:1.5; margin-bottom:20px; }
+.confirm-tag {
+  background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px;
+  padding:10px 14px; font-size:11px; color:#166534; text-align:center; line-height:1.5; width:100%;
+}
+.confirm-bottom { padding:10px 14px 14px; flex-shrink:0; }
+.btn-confirm {
+  width:100%; padding:12px; background:var(--brown); color:#fff; border:none;
+  border-radius:6px; font-size:13px; font-weight:700; font-family:'Barlow',sans-serif; cursor:pointer;
+}
+
+/* INFO PANEL */
+.info {
+  background:#fff; border-left:1px solid var(--border);
+  overflow-y:auto; padding:20px;
+}
+.i-step { font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:700; color:var(--l5); letter-spacing:.6px; text-transform:uppercase; margin-bottom:8px; }
+.i-title { font-size:15px; font-weight:700; color:var(--text); margin-bottom:10px; line-height:1.3; }
+.i-body { font-size:12px; color:var(--dim); line-height:1.65; margin-bottom:14px; }
+.i-box { border-radius:8px; padding:11px 13px; margin-bottom:10px; }
+.i-box-brown { background:#FAF5F0; border:1px solid var(--border); }
+.i-box-purple { background:#F8F2FC; border:1px solid #DDD0E8; }
+.i-box-green { background:#F0FDF4; border:1px solid #BBF7D0; }
+.i-box-t { font-size:11px; font-weight:700; color:var(--brown); margin-bottom:4px; }
+.i-box-t.purple { color:var(--l5); }
+.i-box-t.green { color:#065F46; }
+.i-box-p { font-size:11px; color:var(--dim); line-height:1.55; }
+.i-list { list-style:none; margin-bottom:14px; }
+.i-list li { font-size:12px; color:var(--text); line-height:1.55; padding:5px 0 5px 14px; position:relative; border-bottom:1px solid #FAF8F5; }
+.i-list li:last-child { border-bottom:none; }
+.i-list li::before { content:'·'; position:absolute; left:0; color:var(--brown); font-weight:900; }
+.i-divider { height:1px; background:var(--border); margin:14px 0; }
+
+/* MOBILE NAV */
+.mobile-nav { display:none; }
+.mnav-item {
+  flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;
+  cursor:pointer; padding:6px 4px;
+}
+.mnav-num {
+  width:32px; height:32px; border-radius:50%;
+  background:#F3EEE8; color:var(--dim); font-size:13px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'IBM Plex Mono',monospace;
+}
+.mnav-label { font-size:11px; color:var(--dim); font-weight:500; }
+.mnav-item.active .mnav-num { background:var(--brown); color:#fff; }
+.mnav-item.active .mnav-label { color:var(--brown); font-weight:600; }
+
+/* MOBILE */
+@media (max-width:640px) {
+  html,body { height:auto; overflow-x:hidden; overflow-y:auto; }
+  body { padding-bottom:72px; }
+  .header { height:auto; padding:10px 16px; flex-wrap:wrap; gap:6px; }
+  .h-sub,.h-div { display:none; }
+  .layout { display:block; overflow:visible; flex:none; }
+  .sidebar,.info { display:none; }
+  .center { padding:20px 16px 16px; overflow:visible; display:block; }
+  .device { width:min(290px, calc(100vw - 32px)); margin:0 auto; }
+  .mobile-nav {
+    display:flex; position:fixed; bottom:0; left:0; right:0;
+    background:#fff; border-top:1px solid var(--border);
+    z-index:1000; padding:8px 0 env(safe-area-inset-bottom, 12px);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <!-- Living wordmark -->
+    <svg height="22px" viewBox="0 0 96 37" fill="#4E3D33" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#lv-hdr)"><path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z"/><path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z"/><path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z"/><path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z"/><path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z"/><path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z"/><path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825-0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z"/></g><defs><clipPath id="lv-hdr"><rect width="96" height="37"/></clipPath></defs></svg>
+    <div class="h-div"></div>
+    <span class="h-sub">Portal Wi-Fi · L5 Lilás · <strong>demo interativa</strong></span>
+  </div>
+  <span class="h-tag">Como o usuário vê</span>
+</div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sb-lbl">Jornada</div>
+    <div class="nav-item active" data-s="1">
+      <span class="nav-num">01</span>
+      <span class="nav-label">Splash Wi-Fi</span>
+    </div>
+    <div class="nav-item" data-s="2">
+      <span class="nav-num">02</span>
+      <span class="nav-label">Cadastro</span>
+    </div>
+    <div class="nav-item" data-s="3">
+      <span class="nav-num">03</span>
+      <span class="nav-label">Oferta Living</span>
+    </div>
+    <div class="nav-item" data-s="4">
+      <span class="nav-num">04</span>
+      <span class="nav-label">Confirmação</span>
+    </div>
+    <div class="sb-note">
+      <strong>Canal</strong>
+      Metrô L5 Lilás · estações Eucaliptos, Moema, Campo Belo, Brooklin. 120k acessos/mês.
+    </div>
+  </div>
+
+  <!-- PHONE -->
+  <div class="center">
+    <div class="device">
+      <div class="device-camera"></div>
+      <div class="device-screen">
+
+        <!-- S1: SPLASH -->
+        <div class="screen active" id="s1">
+          <div class="statusbar">
+            <span>09:41</span>
+            <span>Wi-Fi ▌▌▌</span>
+          </div>
+          <div class="splash-body">
+            <div style="margin-bottom:20px;">
+              <svg height="32px" viewBox="0 0 96 37" fill="#4E3D33" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#lv-s1)"><path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z"/><path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z"/><path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z"/><path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z"/><path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z"/><path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z"/><path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825-0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z"/></g><defs><clipPath id="lv-s1"><rect width="96" height="37"/></clipPath></defs></svg>
+            </div>
+            <div class="splash-badge">Wi-Fi Gratuito · L5 Lilás</div>
+            <div class="splash-title">Conecte-se.<br>É grátis e rápido.</div>
+            <div class="splash-sub">Benefício exclusivo no metrô L5 Lilás.</div>
+            <button class="btn-splash" onclick="goTo(2)">Acessar Wi-Fi</button>
+            <div class="splash-footer">Acesso seguro e gratuito · powered by Trackfy</div>
+          </div>
+        </div>
+
+        <!-- S2: CADASTRO -->
+        <div class="screen" id="s2">
+          <div class="statusbar" style="background:var(--brown);color:rgba(255,255,255,.6);">
+            <span>09:41</span><span>Wi-Fi ▌▌▌</span>
+          </div>
+          <div class="form-header">
+            <svg height="14px" viewBox="0 0 96 37" fill="rgba(255,255,255,.85)" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#lv-s2)"><path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(255,255,255,.85)"/><path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(255,255,255,.85)"/><path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(255,255,255,.85)"/><path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(255,255,255,.85)"/><path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(255,255,255,.85)"/><path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(255,255,255,.85)"/><path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825-0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(255,255,255,.85)"/></g><defs><clipPath id="lv-s2"><rect width="96" height="37" fill="rgba(255,255,255,.85)"/></clipPath></defs></svg>
+            <span class="form-header-right">Cadastro seguro</span>
+          </div>
+          <div class="form-body">
+            <div class="form-greeting">Complete seu cadastro</div>
+            <div class="fg"><label>Nome completo *</label><input class="fc" type="text" placeholder="Seu nome"></div>
+            <div class="fg"><label>Telefone *</label><input class="fc" type="tel" placeholder="(11) 91234-5678"></div>
+            <div class="fg"><label>E-mail</label><input class="fc" type="email" placeholder="nome@email.com"></div>
+            <div class="fg">
+              <label>Perfil de investimento *</label>
+              <select class="fc">
+                <option value="">Selecione</option>
+                <option>Busco meu primeiro imóvel</option>
+                <option>Investidor — renda ou revenda</option>
+                <option>Segunda residência / base em SP</option>
+                <option>Ainda estou pesquisando</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-bottom">
+            <button class="btn-form" onclick="goTo(3)">Enviar e conectar</button>
+          </div>
+        </div>
+
+        <!-- S3: OFERTA -->
+        <div class="screen" id="s3">
+          <div class="statusbar" style="background:var(--brown);color:rgba(255,255,255,.4);">
+            <span>09:42</span><span>Wi-Fi ▌▌▌</span>
+          </div>
+          <div class="offer-top">
+            <svg height="18px" viewBox="0 0 96 37" fill="rgba(255,255,255,.8)" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#lv-s3)"><path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(255,255,255,.8)"/><path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(255,255,255,.8)"/><path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(255,255,255,.8)"/><path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(255,255,255,.8)"/><path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(255,255,255,.8)"/><path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(255,255,255,.8)"/><path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825-0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(255,255,255,.8)"/></g><defs><clipPath id="lv-s3"><rect width="96" height="37" fill="rgba(255,255,255,.8)"/></clipPath></defs></svg>
+            <span class="offer-badge">LIVING · PUBLICIDADE</span>
+          </div>
+          <div class="offer-visual">
+            <!-- L5 Lilás line indicator -->
+            <div style="position:absolute;top:14px;right:14px;background:var(--l5);border-radius:4px;padding:3px 8px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:#fff;letter-spacing:.08em;z-index:2;">L5 LILÁS</div>
+            <svg height="60px" viewBox="0 0 96 37" fill="rgba(255,255,255,.15)" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:140px;height:auto;z-index:1;"><g clip-path="url(#lv-s3b)"><path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z"/><path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z"/><path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z"/><path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z"/><path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z"/><path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z"/><path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825-0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z"/></g><defs><clipPath id="lv-s3b"><rect width="96" height="37"/></clipPath></defs></svg>
+            <div class="offer-tagline">Home &amp; Stay<br>Moema</div>
+            <div class="offer-sub">Moradia com serviços no coração de Moema.<br>A 8 min da Estação Eucaliptos.</div>
+          </div>
+          <div class="offer-bottom">
+            <button class="btn-offer" onclick="goTo(4)">Conhecer o empreendimento</button>
+            <button class="btn-offer-skip" onclick="goTo(4)">Agora não, só navegar</button>
+          </div>
+        </div>
+
+        <!-- S4: CONFIRMAÇÃO -->
+        <div class="screen" id="s4">
+          <div class="statusbar" style="background:var(--brown);color:rgba(255,255,255,.6);">
+            <span>09:42</span><span>Wi-Fi ▌▌▌</span>
+          </div>
+          <div class="confirm-header">
+            <svg height="14px" viewBox="0 0 96 37" fill="rgba(255,255,255,.8)" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#lv-s4)"><path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(255,255,255,.8)"/><path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(255,255,255,.8)"/><path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(255,255,255,.8)"/><path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(255,255,255,.8)"/><path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(255,255,255,.8)"/><path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(255,255,255,.8)"/><path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825-0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(255,255,255,.8)"/></g><defs><clipPath id="lv-s4"><rect width="96" height="37" fill="rgba(255,255,255,.8)"/></clipPath></defs></svg>
+          </div>
+          <div class="confirm-body">
+            <div class="confirm-check">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="confirm-title">Cadastro recebido!</div>
+            <div class="confirm-msg">Sua conexão foi liberada.<br>Boa viagem.</div>
+            <div class="confirm-tag">
+              Em breve um consultor do Living Moema entrará em contato pelo número informado.
+            </div>
+          </div>
+          <div class="confirm-bottom">
+            <button class="btn-confirm" onclick="goTo(1)">Começar a navegar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO PANEL -->
+  <div class="info" id="info-panel">
+
+    <div class="info-step" id="info-1">
+      <div class="i-step">Etapa 01</div>
+      <div class="i-title">Splash personalizado com identidade Living</div>
+      <div class="i-body">O passageiro conecta ao Wi-Fi gratuito do metrô e vê a tela de boas-vindas antes de qualquer dado ser solicitado. Identidade visual do empreendimento desde o primeiro contato.</div>
+      <div class="i-box i-box-purple">
+        <div class="i-box-t purple">Canal · L5 Lilás</div>
+        <div class="i-box-p">Eucaliptos · Moema · Campo Belo · Brooklin. O empreendimento fica a 8 min a pé da Estação Eucaliptos.</div>
+      </div>
+      <div class="i-box i-box-brown">
+        <div class="i-box-t">Volume estimado</div>
+        <div class="i-box-p">120.000 acessos/mês na L5. Taxa de abertura do portal: ~40%.</div>
+      </div>
+    </div>
+
+    <div class="info-step" id="info-2" style="display:none;">
+      <div class="i-step">Etapa 02</div>
+      <div class="i-title">Formulário de qualificação integrado ao portal</div>
+      <div class="i-body">Coleta nome, telefone, e-mail e perfil de investimento. O preenchimento do formulário é o gate para a conexão, garantindo dados reais e qualificados.</div>
+      <div class="i-box i-box-brown">
+        <div class="i-box-t">Campos coletados</div>
+        <div class="i-box-p">Nome · Telefone · E-mail · Perfil de investimento. Dados suficientes para qualificação e follow-up comercial.</div>
+      </div>
+      <div class="i-box i-box-purple">
+        <div class="i-box-t purple">Taxa de qualificação</div>
+        <div class="i-box-p">0,2% dos acessos = ~240 leads/mês qualificados pelo próprio canal, sem custo adicional por lead.</div>
+      </div>
+    </div>
+
+    <div class="info-step" id="info-3" style="display:none;">
+      <div class="i-step">Etapa 03</div>
+      <div class="i-title">Oferta do empreendimento no momento de maior atenção</div>
+      <div class="i-body">Após o cadastro, o usuário vê o criativo do Living Moema antes de acessar a internet. É o momento de maior atenção de toda a jornada: o usuário acabou de ceder dados e ainda não saiu do portal.</div>
+      <div class="i-box i-box-brown">
+        <div class="i-box-t">Criativo personalizado</div>
+        <div class="i-box-p">Identidade visual e copy adaptados por gancho de campanha (Patrimônio ou Base em SP).</div>
+      </div>
+      <div class="i-box i-box-green">
+        <div class="i-box-t green">CPL estimado: R$ 48</div>
+        <div class="i-box-p">Abaixo do Meta Ads para o mesmo perfil geográfico (R$80–250). Sem dispersão de audiência.</div>
+      </div>
+    </div>
+
+    <div class="info-step" id="info-4" style="display:none;">
+      <div class="i-step">Etapa 04</div>
+      <div class="i-title">Confirmação + entrada no CRM</div>
+      <div class="i-body">Wi-Fi liberado e lead confirmado. O contato entra no CRM da Living com tag da campanha e origem L5, pronto para o fluxo comercial.</div>
+      <div class="i-box i-box-green">
+        <div class="i-box-t green">O que acontece depois</div>
+        <div class="i-box-p">Lead entra no CRM com nome, telefone, e-mail e perfil. Consultor realiza follow-up com contexto de origem (L5 Lilás, Moema).</div>
+      </div>
+      <div class="i-box i-box-brown">
+        <div class="i-box-t">Rastreabilidade</div>
+        <div class="i-box-p">Cada lead traz timestamp, estação de origem e variante de criativo exibida (Gancho A ou B).</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mnav-item active" onclick="goTo(1)"><span class="mnav-num">01</span><span class="mnav-label">Splash</span></div>
+  <div class="mnav-item" onclick="goTo(2)"><span class="mnav-num">02</span><span class="mnav-label">Cadastro</span></div>
+  <div class="mnav-item" onclick="goTo(3)"><span class="mnav-num">03</span><span class="mnav-label">Oferta</span></div>
+  <div class="mnav-item" onclick="goTo(4)"><span class="mnav-num">04</span><span class="mnav-label">Confirma</span></div>
+</div>
+
+<script>
+var cur = 1;
+function goTo(n) {
+  cur = n;
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.nav-item').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.mnav-item').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('s' + n).classList.add('active');
+  document.querySelectorAll('.nav-item')[n - 1].classList.add('active');
+  document.querySelectorAll('.mnav-item')[n - 1].classList.add('active');
+  for (var i = 1; i <= 4; i++) {
+    document.getElementById('info-' + i).style.display = (i === n) ? 'block' : 'none';
+  }
+}
+document.querySelectorAll('.nav-item').forEach(function(el, i) {
+  el.addEventListener('click', function(){ goTo(i + 1); });
+});
+</script>
+
+</body>
+</html>
