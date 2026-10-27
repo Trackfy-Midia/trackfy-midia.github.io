@@ -110,16 +110,33 @@ body { background:var(--bg); display:flex; flex-direction:column; }
   font-size:22px; color:#111; line-height:1.2; margin-bottom:8px;
   text-transform:uppercase; letter-spacing:.3px;
 }
-.splash-sub { font-size:11px; color:#666; margin-bottom:28px; }
+.splash-sub { font-size:11px; color:#666; margin-bottom:20px; }
 .btn-splash {
   background:var(--brown); color:#fff; border:none; border-radius:6px;
   padding:12px 28px; font-family:'Barlow',sans-serif; font-size:13px;
   font-weight:700; cursor:pointer; width:100%; max-width:200px;
 }
 .splash-footer {
-  position:absolute; bottom:14px;
   font-family:'IBM Plex Mono',monospace; font-size:9px; color:#bbb;
+  margin-top:14px;
 }
+/* OPTINS */
+.opt-wrap { width:100%; text-align:left; margin-top:18px; }
+.opt-row { display:flex; align-items:flex-start; gap:8px; cursor:pointer; margin-bottom:10px; }
+.opt-row:last-child { margin-bottom:0; }
+.opt-toggle {
+  display:inline-block; width:24px; height:14px; border-radius:7px;
+  background:#DDD5CC; position:relative; flex-shrink:0;
+  cursor:pointer; transition:background .2s; margin-top:1px;
+}
+.opt-toggle::after {
+  content:''; position:absolute; width:10px; height:10px; border-radius:50%;
+  background:#fff; top:2px; left:2px; transition:transform .2s;
+  box-shadow:0 1px 3px rgba(0,0,0,.2);
+}
+.opt-toggle.active { background:var(--brown); }
+.opt-toggle.active::after { transform:translateX(10px); }
+.opt-label { font-size:10px; color:#999; line-height:1.45; }
 
 /* S2 — FORM */
 #s2 { background:#fff; }
@@ -333,6 +350,16 @@ body { background:var(--bg); display:flex; flex-direction:column; }
             <div class="splash-title">Conecte-se.<br>É grátis e rápido.</div>
             <div class="splash-sub">Benefício exclusivo no metrô L5 Lilás.</div>
             <button class="btn-splash" onclick="goTo(2)">Acessar Wi-Fi</button>
+            <div class="opt-wrap">
+              <div class="opt-row" onclick="this.querySelector('.opt-toggle').classList.toggle('active')">
+                <span class="opt-toggle active"></span>
+                <span class="opt-label">Tenho 18 anos ou mais e li e aceito os <u>Termos de uso</u> e a <u>Política de Privacidade</u>.</span>
+              </div>
+              <div class="opt-row" onclick="this.querySelector('.opt-toggle').classList.toggle('active')">
+                <span class="opt-toggle"></span>
+                <span class="opt-label">Aceito receber informações e ofertas do Living Moema pelo WhatsApp. <span style="color:#bbb;">(opcional)</span></span>
+              </div>
+            </div>
             <div class="splash-footer">Acesso seguro e gratuito · powered by Trackfy</div>
           </div>
         </div>
