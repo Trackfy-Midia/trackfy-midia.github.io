@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial · Trackfy × Living Moema</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --liv:    #1E3A2F; --liv-md: #2A6645; --liv-lt: rgba(30,58,47,.08);
+  --l5:     #8C4799; --l5-lt:  rgba(140,71,153,.08);
+  --bg:     #F0EDE8; --surface:#E8E4DE; --border: #D8D4CE;
+  --black:  #111111; --red:    #E52420; --muted:  #888880; --dim: #66665F; --white:#FFFFFF;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--black); font-family:'Barlow',sans-serif; font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.section-inner { max-width:1100px; margin:0 auto; }
+.sec-label { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.sec-label::before { content:''; display:inline-block; width:16px; height:2px; background:currentColor; }
+.sec-label.l5  { color:var(--l5); }
+.sec-label.liv { color:var(--liv-md); }
+h2 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(40px,5.5vw,66px); font-weight:800; line-height:1.05; letter-spacing:-.01em; margin-bottom:20px; }
+h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; margin-bottom:6px; }
+/* NAV */
+#nav { position:fixed; top:0; left:0; right:0; z-index:200; background:var(--black); height:52px; display:flex; align-items:center; justify-content:space-between; padding:0 48px; border-bottom:1px solid rgba(255,255,255,.06); }
+.nav-brand { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; color:var(--white); display:flex; align-items:center; gap:10px; }
+.nav-bars { display:flex; gap:2px; align-items:flex-end; }
+.nav-bar  { width:4px; background:var(--red); }
+.nav-bar:nth-child(1) { height:14px; }
+.nav-bar:nth-child(2) { height:11px; }
+.nav-sep { color:rgba(255,255,255,.18); }
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a { font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(255,255,255,.45); text-decoration:none; letter-spacing:.1em; text-transform:uppercase; transition:color .15s; }
+.nav-links a:hover { color:var(--white); }
+/* HERO */
+#hero { min-height:100vh; background:var(--liv); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 48px 60px; position:relative; overflow:hidden; }
+#hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 55% at 50% 60%, rgba(42,102,69,.25) 0%, transparent 70%); pointer-events:none; }
+.hero-tag { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); border:1px solid rgba(255,255,255,.12); padding:5px 14px; border-radius:2px; margin-bottom:36px; }
+.hero-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(60px,9vw,120px); font-weight:900; line-height:.95; letter-spacing:-.02em; color:var(--white); margin-bottom:32px; text-transform:uppercase; }
+.hero-title .x { color:var(--l5); }
+.hero-sub { font-size:clamp(14px,1.6vw,17px); color:rgba(255,255,255,.55); max-width:560px; margin:0 auto 48px; line-height:1.7; }
+.hero-logos { display:flex; align-items:center; justify-content:center; gap:28px; margin-top:16px; }
+.hero-trackfy { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:10px; }
+.hero-divider { width:1px; height:24px; background:rgba(255,255,255,.2); }
+.scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(255,255,255,.25); letter-spacing:.12em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.scroll-hint::after { content:''; width:1px; height:28px; background:rgba(255,255,255,.2); }
+/* STATS */
+.stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border-radius:12px; overflow:hidden; margin:48px 0; }
+.stat-card { background:var(--white); padding:40px 32px; text-align:center; }
+.stat-n { font-family:'Barlow Condensed',sans-serif; font-size:clamp(48px,5.5vw,72px); font-weight:900; line-height:1; margin-bottom:8px; }
+.stat-n.l5 { color:var(--l5); }
+.stat-lbl { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+.stat-sub { font-size:12px; color:var(--dim); margin-top:4px; }
+/* CALLOUT */
+.callout-dark { background:var(--black); border-radius:12px; padding:28px 32px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.callout-dot  { width:18px; height:18px; border-radius:50%; flex-shrink:0; }
+.callout-lbl  { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:4px; }
+.callout-title{ font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; color:var(--white); margin-bottom:4px; }
+.callout-sub  { font-size:13px; color:rgba(255,255,255,.5); }
+.callout-stats{ margin-left:auto; display:flex; gap:32px; }
+.cs-n { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:28px; color:var(--white); line-height:1; }
+.cs-l { font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(255,255,255,.4); letter-spacing:.07em; text-transform:uppercase; }
+/* FEATURE LIST */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-top:48px; }
+.feat-list { display:flex; flex-direction:column; }
+.feat-item { padding:24px 0; border-bottom:1px solid var(--border); display:flex; gap:20px; }
+.feat-item:first-child { border-top:1px solid var(--border); }
+.feat-num { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--red); font-weight:600; flex-shrink:0; margin-top:2px; }
+.feat-title { font-weight:600; font-size:15px; margin-bottom:4px; }
+.feat-desc { font-size:13px; color:var(--dim); line-height:1.55; }
+/* FLOW */
+.flow { margin-top:48px; background:var(--black); border-radius:10px; padding:20px 28px; display:flex; align-items:center; overflow:hidden; }
+.fnode { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; text-align:center; }
+.fnode-name { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--white); letter-spacing:.06em; font-weight:600; }
+.fnode-role { font-size:10px; color:rgba(255,255,255,.35); }
+.fnode.active .fnode-name { color:var(--liv-md); }
+.farrow { font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--red); padding:0 4px; flex-shrink:0; }
+/* PRODUCT SECTION */
+.dist-card { background:var(--white); border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+.dist-head { background:var(--liv); padding:20px 24px; }
+.dist-head h3 { color:var(--white); font-size:18px; }
+.dist-head p  { font-size:12px; color:rgba(255,255,255,.6); margin-top:4px; }
+.dist-item { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:1px solid var(--border); }
+.dist-item:last-child { border-bottom:none; }
+.dist-label { font-size:13px; font-weight:500; }
+.dist-time  { font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; }
+.dist-time.l5 { color:var(--l5); }
+.dist-time.dft { color:var(--liv-md); }
+.chip { font-family:'IBM Plex Mono',monospace; font-size:10px; padding:5px 10px; border:1px solid var(--border); border-radius:4px; color:var(--dim); }
+/* CRIATIVOS */
+.criativos-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
+.cri-card { border-radius:12px; padding:32px; }
+.cri-card.a { background:var(--liv); }
+.cri-card.b { background:var(--l5-lt); border:1px solid rgba(140,71,153,.2); }
+.cri-tag  { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; margin-bottom:12px; }
+.cri-card.a .cri-tag  { color:rgba(255,255,255,.5); }
+.cri-card.b .cri-tag  { color:var(--l5); }
+.cri-card.a h3 { color:var(--white); font-size:20px; }
+.cri-card.b h3 { color:var(--l5); font-size:20px; }
+.cri-desc { font-size:13px; line-height:1.65; margin-top:10px; }
+.cri-card.a .cri-desc { color:rgba(255,255,255,.75); }
+.cri-card.b .cri-desc { color:var(--dim); }
+.cpl-bar { margin-top:16px; background:var(--black); border-radius:10px; padding:20px 28px; display:flex; align-items:center; gap:20px; }
+.cpl-val { font-family:'Barlow Condensed',sans-serif; font-size:40px; font-weight:900; color:var(--white); line-height:1; }
+.cpl-lbl { font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(255,255,255,.4); letter-spacing:.06em; text-transform:uppercase; margin-top:4px; }
+/* PHONE */
+.sim-wrap  { display:flex; flex-direction:column; align-items:center; gap:20px; position:sticky; top:80px; }
+.sim-top   { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--l5); }
+.phone-frame { width:280px; height:560px; background:#1C1C1E; border-radius:40px; padding:12px; box-shadow:0 24px 64px rgba(0,0,0,.18),0 0 0 1px rgba(255,255,255,.06); position:relative; }
+.phone-frame::before { content:''; position:absolute; top:12px; left:50%; transform:translateX(-50%); width:78px; height:22px; background:#1C1C1E; border-radius:0 0 14px 14px; z-index:10; }
+.phone-screen { width:100%; height:100%; background:var(--white); border-radius:30px; overflow:hidden; position:relative; }
+.tela { position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; transform:translateX(10px); overflow-y:auto; scrollbar-width:none; }
+.tela::-webkit-scrollbar { display:none; }
+.tela.active { opacity:1; pointer-events:all; transform:translateX(0); }
+.sim-nav  { display:flex; align-items:center; gap:16px; }
+.sim-btn  { width:38px; height:38px; border-radius:50%; border:1px solid var(--border); background:var(--white); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--black); transition:border-color .15s; }
+.sim-btn:hover { border-color:var(--liv-md); }
+.sim-btn:disabled { opacity:.25; cursor:default; }
+.sim-dots { display:flex; gap:7px; }
+.sim-dot  { width:7px; height:7px; border-radius:50%; background:var(--border); cursor:pointer; transition:background .15s; }
+.sim-dot.active { background:var(--liv-md); }
+/* FLUXO */
+#fluxo { padding:96px 48px; background:var(--white); }
+.fluxo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border-radius:12px; overflow:hidden; margin-top:48px; }
+.fluxo-step { background:var(--white); padding:32px 24px; }
+.fluxo-num   { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--red); font-weight:600; margin-bottom:12px; }
+.fluxo-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; margin-bottom:8px; }
+.fluxo-desc  { font-size:13px; color:var(--dim); line-height:1.6; }
+/* CTA */
+#cta { padding:96px 48px; background:var(--black); text-align:center; }
+#cta h2 { color:var(--white); margin-bottom:16px; }
+#cta p  { color:rgba(255,255,255,.5); font-size:15px; max-width:480px; margin:0 auto 40px; }
+.cta-logos { display:flex; align-items:center; justify-content:center; gap:28px; }
+.cta-trackfy { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; color:rgba(255,255,255,.45); display:flex; align-items:center; gap:8px; }
+footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(255,255,255,.06); }
+.foot { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+.foot span { font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(255,255,255,.25); letter-spacing:.08em; }
+/* RESPONSIVE */
+@media (max-width:960px) {
+  .two-col,.criativos-grid { grid-template-columns:1fr; }
+  .fluxo-grid,.stats-grid  { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px) {
+  #nav { padding:0 20px; }
+  .nav-links { display:none; }
+  #hero,[id] { padding-left:24px !important; padding-right:24px !important; }
+  .fluxo-grid,.stats-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  var H='3a85cb9ed501f7115cb68e8043e376db86b800564bfe3faa163f82933b55e96e';
+  if(sessionStorage.getItem('auth_ok')===H)return;
+  async function chk(p){var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');}
+  document.addEventListener('DOMContentLoaded',function(){
+    var o=document.createElement('div');
+    o.innerHTML='<div id="ab"><p id="at">Acesso restrito</p><p id="as">Insira a senha para visualizar esta proposta.</p><input id="ai" type="password" placeholder="Senha de acesso"/><button id="ab2">Entrar</button><p id="ae"></p></div>';
+    Object.assign(o.style,{position:'fixed',inset:'0',background:'#0a0a0a',display:'flex',alignItems:'center',justifyContent:'center',zIndex:'99999'});
+    document.body.appendChild(o);
+    var s=document.createElement('style');
+    s.textContent='#ab{background:#111;border:1px solid #333;border-radius:12px;padding:40px 36px;width:320px;text-align:center;font-family:sans-serif}#at{color:#fff;font-size:18px;font-weight:600;margin-bottom:6px}#as{color:#888;font-size:13px;margin-bottom:24px}#ai{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:14px;outline:none;margin-bottom:12px;box-sizing:border-box}#ai:focus{border-color:#2A6645}#ab2{width:100%;padding:10px;border-radius:8px;background:#2A6645;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer}#ab2:hover{opacity:.85}#ae{color:#e52420;font-size:12px;margin-top:10px;min-height:18px}';
+    document.head.appendChild(s);
+    function tr(){var p=document.getElementById('ai').value;chk(p).then(h=>{if(h===H){sessionStorage.setItem('auth_ok',H);o.remove();}else{document.getElementById('ae').textContent='Senha incorreta.';document.getElementById('ai').value='';document.getElementById('ai').focus();}});}
+    document.getElementById('ab2').addEventListener('click',tr);
+    document.getElementById('ai').addEventListener('keydown',e=>{if(e.key==='Enter')tr();});
+    setTimeout(()=>document.getElementById('ai').focus(),50);
+  });
+})();
+</script><nav id="nav">
+  <div class="nav-brand">
+    <div class="nav-bars"><div class="nav-bar"></div><div class="nav-bar"></div></div>
+    <span>TRACKFY</span>
+    <span class="nav-sep">×</span>
+    <svg height="20px" viewBox="0 0 96 37" fill="#FCFAF8" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_52_4210_1)">
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="#FCFAF8"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="#FCFAF8"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="#FCFAF8"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="#FCFAF8"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="#FCFAF8"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="#FCFAF8"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="#FCFAF8"/>
+</g>
+<defs>
+<clipPath id="clip0_52_4210_1">
+<rect height="20px" fill="#FCFAF8"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <ul class="nav-links">
+    <li><a href="#canal">O canal</a></li>
+    <li><a href="#audiencia">Audiência</a></li>
+    <li><a href="#produto">Home &amp; Stay</a></li>
+    <li><a href="#criativos">Criativos</a></li>
+    <li><a href="#qualificacao">Qualificação</a></li>
+  </ul>
+</nav><section id="hero">
+  <div class="hero-tag">Proposta Comercial · Living Moema · 2026</div>
+  <h1 class="hero-title">TRACKFY<span class="x"> × </span>LIVING</h1>
+  <p class="hero-sub">O canal que leva o Home &amp; Stay a quem investe em São Paulo — via Wi-Fi do transporte público, com qualificação integrada ao CRM.</p>
+  <div class="hero-logos">
+    <div class="hero-trackfy"><div class="nav-bars" style="gap:2px;align-items:flex-end;display:flex;"><div style="width:4px;height:14px;background:var(--red);opacity:.7;"></div><div style="width:4px;height:11px;background:var(--red);opacity:.7;"></div></div> TRACKFY</div>
+    <div class="hero-divider"></div>
+    <svg height="20px" viewBox="0 0 96 37" fill="rgba(255,255,255,.5)" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_52_4210_2)">
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(255,255,255,.5)"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(255,255,255,.5)"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(255,255,255,.5)"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(255,255,255,.5)"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(255,255,255,.5)"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(255,255,255,.5)"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(255,255,255,.5)"/>
+</g>
+<defs>
+<clipPath id="clip0_52_4210_2">
+<rect height="20px" fill="rgba(255,255,255,.5)"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section><section id="canal" style="padding:96px 48px;background:var(--bg);">
+  <div class="section-inner">
+    <div class="sec-label">01 — O canal</div>
+    <h2>Wi-Fi como mídia<br>de performance</h2>
+    <div class="two-col">
+      <div class="feat-list">
+        <div class="feat-item"><span class="feat-num">01</span><div><div class="feat-title">Alcance na zona sul</div><div class="feat-desc">A L5 Lilás conecta Eucaliptos, Moema, Campo Belo e Brooklin — bairros de renda alta no entorno direto do empreendimento.</div></div></div>
+        <div class="feat-item"><span class="feat-num">02</span><div><div class="feat-title">Qualificação no ponto de contato</div><div class="feat-desc">O formulário coleta capacidade de investimento e prazo antes de entregar o lead. Só chegam ao CRM contatos com perfil compatível.</div></div></div>
+        <div class="feat-item"><span class="feat-num">03</span><div><div class="feat-title">Entrega direta no CRM Living</div><div class="feat-desc">Integração via webhook com identificação de origem por criativo. O time comercial recebe leads com dados de qualificação preservados.</div></div></div>
+      </div>
+      <div class="flow">
+        <div class="fnode"><span class="fnode-name">CRIATIVO</span><span class="fnode-role">L5 Lilás</span></div>
+        <span class="farrow">→</span>
+        <div class="fnode"><span class="fnode-name">WI-FI</span><span class="fnode-role">portal captivo</span></div>
+        <span class="farrow">→</span>
+        <div class="fnode active"><span class="fnode-name">FORM</span><span class="fnode-role">qualificação</span></div>
+        <span class="farrow">→</span>
+        <div class="fnode"><span class="fnode-name">CRM</span><span class="fnode-role">Living</span></div>
+      </div>
+    </div>
+  </div>
+</section><section id="audiencia" style="padding:96px 48px;background:var(--white);">
+  <div class="section-inner">
+    <div class="sec-label l5">02 — A audiência</div>
+    <h2>L5 Lilás: o eixo<br>direto de Moema</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-n l5">4</div><div class="stat-lbl">Estações-âncora</div><div class="stat-sub">Eucaliptos · Moema · Campo Belo · Brooklin</div></div>
+      <div class="stat-card"><div class="stat-n l5">~120k</div><div class="stat-lbl">Acessos / mês</div><div class="stat-sub">Estimativa conservadora nas 4 estações</div></div>
+      <div class="stat-card"><div class="stat-n l5">8 min</div><div class="stat-lbl">Do empreendimento</div><div class="stat-sub">Eucaliptos a pé · Av. Cotovia, Moema</div></div>
+    </div>
+    <div class="callout-dark">
+      <div class="callout-dot" style="background:var(--l5);"></div>
+      <div>
+        <div class="callout-lbl" style="color:var(--l5);">L5 Lilás · ViaMobilidade</div>
+        <div class="callout-title">Eucaliptos + Moema</div>
+        <div class="callout-sub">Brooklin · Campo Belo · Vila Mariana — zona sul, perfil de alto poder aquisitivo</div>
+      </div>
+      <div class="callout-stats">
+        <div><div class="cs-n">8 min</div><div class="cs-l">a pé do<br>empreendimento</div></div>
+        <div><div class="cs-n">L5</div><div class="cs-l">linha mais próxima<br>do Home &amp; Stay</div></div>
+      </div>
+    </div>
+  </div>
+</section><section id="produto" style="padding:96px 48px;background:var(--bg);">
+  <div class="section-inner">
+    <div class="sec-label l5">03 — O produto</div>
+    <h2>Home &amp; Stay<br>Moema</h2>
+    <p style="font-size:15px;color:var(--dim);margin-bottom:48px;max-width:560px;">Av. Cotovia, 351. Conceito de moradia e hospedagem com conveniências e bem-estar no coração de Moema.</p>
+    <div class="two-col">
+      <div>
+        <h3 style="margin-bottom:16px;">Tipologias</h3>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);"><span style="font-size:13px;font-weight:600;">R2V</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">22–54 m²</span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);"><span style="font-size:13px;font-weight:600;">HIS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">24–33 m²</span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;"><span style="font-size:13px;font-weight:600;">HMP</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">24–27 m²</span></div>
+        </div>
+        <h3 style="margin-top:32px;margin-bottom:12px;">Infraestrutura</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="chip">Piscina coberta</span><span class="chip">Academia</span><span class="chip">Sauna</span><span class="chip">Coworking</span><span class="chip">Rooftop</span><span class="chip">Lavanderia</span><span class="chip">Mini market</span></div>
+      </div>
+      <div class="dist-card">
+        <div class="dist-head"><h3>Localização</h3><p>Tempos estimados · estudo abr/2026</p></div>
+        <div>
+          <div class="dist-item"><span class="dist-label">Parque Ibirapuera</span><span class="dist-time dft">6 min de carro</span></div>
+          <div class="dist-item"><span class="dist-label">Estação Eucaliptos (L5)</span><span class="dist-time l5">8 min a pé</span></div>
+          <div class="dist-item"><span class="dist-label">Shopping Ibirapuera</span><span class="dist-time dft">11 min a pé</span></div>
+          <div class="dist-item"><span class="dist-label">Aeroporto de Congonhas</span><span class="dist-time dft">8 min de carro</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section id="criativos" style="padding:96px 48px;background:var(--liv-lt);border-top:1px solid rgba(30,58,47,.1);border-bottom:1px solid rgba(30,58,47,.1);">
+  <div class="section-inner">
+    <div class="sec-label liv">04 — Estratégia criativa</div>
+    <h2>Dois ganchos,<br>um funil</h2>
+    <p style="font-size:15px;color:var(--dim);max-width:560px;">A campanha testa dois argumentos distintos na L5. O formulário e a entrega ao CRM são os mesmos — o que varia é a mensagem de entrada.</p>
+    <div class="criativos-grid">
+      <div class="cri-card a">
+        <div class="cri-tag">Gancho A · Patrimônio</div>
+        <h3>Diversificar com um endereço em Moema</h3>
+        <p class="cri-desc">Para o empresário ou investidor que analisa imóveis como parte do portfólio. O argumento é localização, renda de locação e valorização em um dos bairros mais consolidados de SP.</p>
+      </div>
+      <div class="cri-card b">
+        <div class="cri-tag">Gancho B · Base em SP</div>
+        <h3>Parar de depender de hotel</h3>
+        <p class="cri-desc">Para quem frequenta SP a negócios e quer conciliar uso pessoal e renda de locação. O argumento é conveniência, custo de oportunidade e retorno sobre um ativo que trabalha quando você não está.</p>
+      </div>
+    </div>
+    <div class="cpl-bar">
+      <div>
+        <div class="cpl-lbl">Custo por lead qualificado</div>
+        <div class="cpl-val">R$ 38</div>
+        <div class="cpl-lbl">capacidade ≥ R$500k · ciclo 90 dias</div>
+      </div>
+      <div style="margin-left:auto;text-align:right;">
+        <div class="cpl-lbl">Funil único</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;">Dois criativos → mesmo formulário → CRM Living</div>
+      </div>
+    </div>
+  </div>
+</section><section id="qualificacao" style="padding:96px 48px;background:var(--white);">
+  <div class="section-inner">
+    <div class="sec-label">05 — A qualificação</div>
+    <h2>Do Wi-Fi ao<br>lead qualificado</h2>
+    <div class="two-col">
+      <div class="feat-list" style="margin-top:12px;">
+        <div class="feat-item"><span class="feat-num">01</span><div><div class="feat-title">Capacidade de investimento</div><div class="feat-desc">O formulário confirma faixa de capacidade antes de liberar o acesso. Leads abaixo do perfil não avançam.</div></div></div>
+        <div class="feat-item"><span class="feat-num">02</span><div><div class="feat-title">Prazo de aquisição</div><div class="feat-desc">Intenção de compra em até 12 meses identifica leads ativos para priorização no atendimento comercial.</div></div></div>
+        <div class="feat-item"><span class="feat-num">03</span><div><div class="feat-title">WhatsApp confirmado</div><div class="feat-desc">Campo de confirmação reduz impacto de números preenchidos automaticamente. O time recebe contatos válidos.</div></div></div>
+        <div class="feat-item"><span class="feat-num">04</span><div><div class="feat-title">Origem rastreável por criativo</div><div class="feat-desc">Cada lead chega com identificação de qual gancho gerou o contato — patrimônio ou base em SP.</div></div></div>
+      </div>
+      <div class="sim-wrap" onclick="event.stopPropagation()">
+        <div class="sim-top">Jornada no portal Wi-Fi</div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="tela active" id="lv-t1">
+              <div style="background:var(--liv);padding:40px 20px 20px;text-align:center;">
+                <div style="margin-bottom:10px;"><svg height="18px" viewBox="0 0 96 37" fill="#FCFAF8" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_52_4210_3)">
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="#FCFAF8"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="#FCFAF8"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="#FCFAF8"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="#FCFAF8"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="#FCFAF8"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="#FCFAF8"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="#FCFAF8"/>
+</g>
+<defs>
+<clipPath id="clip0_52_4210_3">
+<rect height="18px" fill="#FCFAF8"/>
+</clipPath>
+</defs>
+</svg>
+</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;">Wi-Fi Gratuito</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:#fff;line-height:1.1;">Home &amp; Stay<br>Moema</div>
+              </div>
+              <div style="padding:18px 20px;">
+                <p style="font-size:12px;color:var(--dim);margin-bottom:14px;line-height:1.5;">Conecte-se e conheça uma oportunidade de investimento em Moema.</p>
+                <button onclick="lvGo(2)" style="width:100%;padding:10px;background:var(--liv);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Acessar Wi-Fi →</button>
+              </div>
+            </div>
+            <div class="tela" id="lv-t2">
+              <div style="padding:24px 20px;">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--l5);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Passo 1 de 2</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;margin-bottom:18px;">Seus dados</div>
+                <div style="margin-bottom:10px;"><div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Nome completo</div><div style="height:34px;border-radius:6px;border:1px solid var(--border);background:var(--surface);"></div></div>
+                <div style="margin-bottom:18px;"><div style="font-size:11px;color:var(--muted);margin-bottom:4px;">WhatsApp</div><div style="height:34px;border-radius:6px;border:1px solid var(--border);background:var(--surface);"></div></div>
+                <button onclick="lvGo(3)" style="width:100%;padding:10px;background:var(--liv);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Continuar →</button>
+              </div>
+            </div>
+            <div class="tela" id="lv-t3">
+              <div style="padding:24px 20px;">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--l5);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Passo 2 de 2</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;margin-bottom:14px;">Sobre o investimento</div>
+                <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Capacidade de investimento</div>
+                <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px;">
+                  <div style="padding:7px 12px;border-radius:6px;border:1px solid var(--border);font-size:11px;color:var(--dim);">Até R$300k</div>
+                  <div style="padding:7px 12px;border-radius:6px;border:1px solid var(--border);font-size:11px;color:var(--dim);">R$300k – R$600k</div>
+                  <div style="padding:7px 12px;border-radius:6px;border:1px solid var(--liv);background:var(--liv-lt);font-size:11px;color:var(--liv);font-weight:600;">Acima de R$600k ✓</div>
+                </div>
+                <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Prazo de aquisição</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;">
+                  <div style="padding:5px 9px;border-radius:6px;border:1px solid var(--border);font-size:10px;color:var(--dim);">Até 3 meses</div>
+                  <div style="padding:5px 9px;border-radius:6px;border:1px solid var(--l5);background:var(--l5-lt);font-size:10px;color:var(--l5);font-weight:600;">3–12 meses ✓</div>
+                  <div style="padding:5px 9px;border-radius:6px;border:1px solid var(--border);font-size:10px;color:var(--dim);">+ de 1 ano</div>
+                </div>
+                <button onclick="lvGo(4)" style="width:100%;padding:10px;background:var(--liv);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Enviar →</button>
+              </div>
+            </div>
+            <div class="tela" id="lv-t4">
+              <div style="padding:44px 20px;text-align:center;">
+                <div style="width:48px;height:48px;background:var(--liv);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:20px;color:#fff;line-height:1;">✓</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px;">Obrigado!</div>
+                <p style="font-size:12px;color:var(--dim);line-height:1.6;margin-bottom:20px;">Em breve nosso time entra em contato para apresentar o Home &amp; Stay Moema.</p>
+                <svg height="16px" viewBox="0 0 96 37" fill="#FCFAF8" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_52_4210_4)">
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="#FCFAF8"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="#FCFAF8"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="#FCFAF8"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="#FCFAF8"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="#FCFAF8"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="#FCFAF8"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="#FCFAF8"/>
+</g>
+<defs>
+<clipPath id="clip0_52_4210_4">
+<rect height="16px" fill="#FCFAF8"/>
+</clipPath>
+</defs>
+</svg>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sim-nav">
+          <button class="sim-btn" id="lv-prev" onclick="lvNav(-1)" disabled>←</button>
+          <div class="sim-dots">
+            <div class="sim-dot active" id="lv-d1" onclick="lvGo(1)"></div>
+            <div class="sim-dot" id="lv-d2" onclick="lvGo(2)"></div>
+            <div class="sim-dot" id="lv-d3" onclick="lvGo(3)"></div>
+            <div class="sim-dot" id="lv-d4" onclick="lvGo(4)"></div>
+          </div>
+          <button class="sim-btn" id="lv-next" onclick="lvNav(1)">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+var lvC=1,LV=4;
+function lvGo(n){document.getElementById('lv-t'+lvC).classList.remove('active');document.getElementById('lv-d'+lvC).classList.remove('active');lvC=n;document.getElementById('lv-t'+lvC).classList.add('active');document.getElementById('lv-d'+lvC).classList.add('active');document.getElementById('lv-prev').disabled=lvC===1;document.getElementById('lv-next').disabled=lvC===LV;}
+function lvNav(d){var n=lvC+d;if(n>=1&&n<=LV)lvGo(n);}
+</script><section id="fluxo">
+  <div class="section-inner">
+    <div class="sec-label">06 — O fluxo</div>
+    <h2>Como funciona<br>na prática</h2>
+    <div class="fluxo-grid">
+      <div class="fluxo-step"><div class="fluxo-num">01</div><div class="fluxo-title">Criativo na L5</div><div class="fluxo-desc">O usuário se conecta ao Wi-Fi nas estações Eucaliptos ou Moema e é direcionado ao portal captivo com identidade Living.</div></div>
+      <div class="fluxo-step"><div class="fluxo-num">02</div><div class="fluxo-title">Portal captivo</div><div class="fluxo-desc">Tela de conexão apresenta o empreendimento. O gancho — patrimônio ou base em SP — define a mensagem de entrada.</div></div>
+      <div class="fluxo-step"><div class="fluxo-num">03</div><div class="fluxo-title">Qualificação</div><div class="fluxo-desc">Formulário coleta capacidade de investimento e prazo. O WhatsApp é confirmado antes do envio.</div></div>
+      <div class="fluxo-step"><div class="fluxo-num">04</div><div class="fluxo-title">CRM Living</div><div class="fluxo-desc">Entrega via webhook com origem e dados de qualificação. O time prioriza por prazo de aquisição e capacidade declarada.</div></div>
+    </div>
+  </div>
+</section><section id="cta">
+  <div class="section-inner">
+    <div class="sec-label" style="justify-content:center;color:rgba(255,255,255,.25);">Próximo passo</div>
+    <h2>Vamos conversar<br>sobre Moema?</h2>
+    <p>A campanha pode ser ativada em até 30 dias após aprovação dos criativos e configuração da integração com o CRM Living.</p>
+    <div class="cta-logos">
+      <div class="cta-trackfy"><div style="display:flex;gap:2px;align-items:flex-end;"><div style="width:4px;height:14px;background:var(--red);opacity:.7;"></div><div style="width:4px;height:11px;background:var(--red);opacity:.7;"></div></div> TRACKFY</div>
+      <div style="width:1px;height:24px;background:rgba(255,255,255,.15);"></div>
+      <svg height="18px" viewBox="0 0 96 37" fill="rgba(255,255,255,.45)" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_52_4210_5)">
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(255,255,255,.45)"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(255,255,255,.45)"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(255,255,255,.45)"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(255,255,255,.45)"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(255,255,255,.45)"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(255,255,255,.45)"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(255,255,255,.45)"/>
+</g>
+<defs>
+<clipPath id="clip0_52_4210_5">
+<rect height="18px" fill="rgba(255,255,255,.45)"/>
+</clipPath>
+</defs>
+</svg>
+
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="foot">
+    <span>TRACKFY × LIVING · PROPOSTA CONFIDENCIAL · 2026</span>
+    <span>trackfymidia.com.br</span>
+  </div>
+</footer>
+</body>
+</html>
