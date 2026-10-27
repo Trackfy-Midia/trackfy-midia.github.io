@@ -17,12 +17,12 @@
 }
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { background:var(--bg); color:var(--black); font-family:'Barlow',sans-serif; font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+body { background:var(--bg); color:var(--black); font-family:'Barlow',sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
 .section-inner { max-width:1100px; margin:0 auto; }
 .sec-label { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:10px; margin-bottom:14px; }
 .sec-label::before { content:''; display:inline-block; width:16px; height:2px; background:currentColor; }
 .sec-label.l5  { color:var(--l5); }
-.sec-label.liv { color:var(--liv-md); } /* --liv-md = dark fendi #4E3D33 */
+.sec-label.liv { color:var(--liv-md); }
 h2 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(40px,5.5vw,66px); font-weight:800; line-height:1.05; letter-spacing:-.01em; margin-bottom:20px; }
 h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; margin-bottom:6px; }
 /* NAV */
@@ -32,35 +32,35 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .nav-bar  { width:4px; background:var(--red); }
 .nav-bar:nth-child(1) { height:14px; }
 .nav-bar:nth-child(2) { height:11px; }
-.nav-sep { color:rgba(255,255,255,.18); }
+.nav-sep { color:rgba(255,255,255,.18); font-size:13px; font-weight:400; }
 .nav-links { display:flex; gap:32px; list-style:none; }
 .nav-links a { font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(255,255,255,.45); text-decoration:none; letter-spacing:.1em; text-transform:uppercase; transition:color .15s; }
 .nav-links a:hover { color:var(--white); }
 /* HERO */
-#hero { min-height:100vh; background:var(--liv); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 48px 60px; position:relative; overflow:hidden; }
-#hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 55% at 50% 60%, rgba(196,183,178,.35) 0%, transparent 70%); pointer-events:none; }
-.hero-tag { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(78,61,51,.5); border:1px solid rgba(78,61,51,.2); padding:5px 14px; border-radius:2px; margin-bottom:36px; }
-.hero-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(60px,9vw,120px); font-weight:900; line-height:.95; letter-spacing:-.02em; color:var(--liv-md); margin-bottom:32px; text-transform:uppercase; }
+#hero { min-height:100vh; background:var(--black); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 48px 60px; position:relative; overflow:hidden; }
+#hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 55% at 50% 60%, rgba(140,71,153,.18) 0%, transparent 70%); pointer-events:none; }
+.hero-tag { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); border:1px solid rgba(255,255,255,.12); padding:5px 14px; border-radius:2px; margin-bottom:36px; }
+.hero-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(60px,9vw,120px); font-weight:900; line-height:.95; letter-spacing:-.02em; color:var(--white); margin-bottom:32px; text-transform:uppercase; }
 .hero-title .x { color:var(--l5); }
-.hero-sub { font-size:clamp(14px,1.6vw,17px); color:rgba(78,61,51,.65); max-width:560px; margin:0 auto 48px; line-height:1.7; }
+.hero-sub { font-size:clamp(15px,1.6vw,18px); color:rgba(255,255,255,.55); max-width:560px; margin:0 auto 48px; line-height:1.7; }
 .hero-logos { display:flex; align-items:center; justify-content:center; gap:28px; margin-top:16px; }
-.hero-trackfy { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; color:rgba(78,61,51,.5); display:flex; align-items:center; gap:10px; }
-.hero-divider { width:1px; height:24px; background:rgba(78,61,51,.2); }
-.scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(78,61,51,.3); letter-spacing:.12em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:8px; }
-.scroll-hint::after { content:''; width:1px; height:28px; background:rgba(78,61,51,.2); }
+.hero-trackfy { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:10px; }
+.hero-divider { width:1px; height:24px; background:rgba(255,255,255,.2); }
+.scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(255,255,255,.25); letter-spacing:.12em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.scroll-hint::after { content:''; width:1px; height:28px; background:rgba(255,255,255,.2); }
 /* STATS */
 .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border-radius:12px; overflow:hidden; margin:48px 0; }
 .stat-card { background:var(--white); padding:40px 32px; text-align:center; }
 .stat-n { font-family:'Barlow Condensed',sans-serif; font-size:clamp(48px,5.5vw,72px); font-weight:900; line-height:1; margin-bottom:8px; }
 .stat-n.l5 { color:var(--l5); }
 .stat-lbl { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
-.stat-sub { font-size:12px; color:var(--dim); margin-top:4px; }
+.stat-sub { font-size:13px; color:var(--dim); margin-top:4px; }
 /* CALLOUT */
 .callout-dark { background:var(--black); border-radius:12px; padding:28px 32px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
 .callout-dot  { width:18px; height:18px; border-radius:50%; flex-shrink:0; }
 .callout-lbl  { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:4px; }
 .callout-title{ font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; color:var(--white); margin-bottom:4px; }
-.callout-sub  { font-size:13px; color:rgba(255,255,255,.5); }
+.callout-sub  { font-size:15px; color:rgba(255,255,255,.5); }
 .callout-stats{ margin-left:auto; display:flex; gap:32px; }
 .cs-n { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:28px; color:var(--white); line-height:1; }
 .cs-l { font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(255,255,255,.4); letter-spacing:.07em; text-transform:uppercase; }
@@ -70,8 +70,8 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .feat-item { padding:24px 0; border-bottom:1px solid var(--border); display:flex; gap:20px; }
 .feat-item:first-child { border-top:1px solid var(--border); }
 .feat-num { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--red); font-weight:600; flex-shrink:0; margin-top:2px; }
-.feat-title { font-weight:600; font-size:15px; margin-bottom:4px; }
-.feat-desc { font-size:13px; color:var(--dim); line-height:1.55; }
+.feat-title { font-weight:600; font-size:16px; margin-bottom:4px; }
+.feat-desc { font-size:15px; color:var(--dim); line-height:1.55; }
 /* FLOW */
 .flow { margin-top:48px; background:var(--black); border-radius:10px; padding:20px 28px; display:flex; align-items:center; overflow:hidden; }
 .fnode { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; text-align:center; }
@@ -83,11 +83,11 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .dist-card { background:var(--white); border-radius:12px; border:1px solid var(--border); overflow:hidden; }
 .dist-head { background:var(--liv); padding:20px 24px; border-bottom:2px solid var(--liv-md); }
 .dist-head h3 { color:var(--liv-md); font-size:18px; }
-.dist-head p  { font-size:12px; color:rgba(78,61,51,.6); margin-top:4px; }
+.dist-head p  { font-size:13px; color:rgba(78,61,51,.6); margin-top:4px; }
 .dist-item { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:1px solid var(--border); }
 .dist-item:last-child { border-bottom:none; }
-.dist-label { font-size:13px; font-weight:500; }
-.dist-time  { font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; }
+.dist-label { font-size:15px; font-weight:500; }
+.dist-time  { font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; }
 .dist-time.l5 { color:var(--l5); }
 .dist-time.dft { color:var(--liv-md); }
 .chip { font-family:'IBM Plex Mono',monospace; font-size:10px; padding:5px 10px; border:1px solid var(--border); border-radius:4px; color:var(--dim); }
@@ -101,7 +101,7 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .cri-card.b .cri-tag  { color:var(--l5); }
 .cri-card.a h3 { color:var(--liv-md); font-size:20px; }
 .cri-card.b h3 { color:var(--l5); font-size:20px; }
-.cri-desc { font-size:13px; line-height:1.65; margin-top:10px; }
+.cri-desc { font-size:15px; line-height:1.65; margin-top:10px; }
 .cri-card.a .cri-desc { color:rgba(78,61,51,.75); }
 .cri-card.b .cri-desc { color:var(--dim); }
 .cpl-bar { margin-top:16px; background:var(--black); border-radius:10px; padding:20px 28px; display:flex; align-items:center; gap:20px; }
@@ -129,11 +129,11 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .fluxo-step { background:var(--white); padding:32px 24px; }
 .fluxo-num   { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--red); font-weight:600; margin-bottom:12px; }
 .fluxo-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; margin-bottom:8px; }
-.fluxo-desc  { font-size:13px; color:var(--dim); line-height:1.6; }
+.fluxo-desc  { font-size:15px; color:var(--dim); line-height:1.6; }
 /* CTA */
 #cta { padding:96px 48px; background:var(--black); text-align:center; }
 #cta h2 { color:var(--white); margin-bottom:16px; }
-#cta p  { color:rgba(255,255,255,.5); font-size:15px; max-width:480px; margin:0 auto 40px; }
+#cta p  { color:rgba(255,255,255,.5); font-size:16px; max-width:480px; margin:0 auto 40px; }
 .cta-logos { display:flex; align-items:center; justify-content:center; gap:28px; }
 .cta-trackfy { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; color:rgba(255,255,255,.45); display:flex; align-items:center; gap:8px; }
 footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(255,255,255,.06); }
@@ -143,6 +143,7 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
 @media (max-width:960px) {
   .two-col,.criativos-grid { grid-template-columns:1fr; }
   .fluxo-grid,.stats-grid  { grid-template-columns:1fr 1fr; }
+  .sim-wrap { position:static; }
 }
 @media (max-width:640px) {
   #nav { padding:0 20px; }
@@ -194,6 +195,8 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
 </defs>
 </svg>
 
+    <span class="nav-sep">×</span>
+    <img src="data:image/jpeg;base64,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" height="22" width="22" style="border-radius:3px;opacity:.65;object-fit:cover;" alt="V4 Company">
   </div>
   <ul class="nav-links">
     <li><a href="#canal">O canal</a></li>
@@ -204,139 +207,40 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
   </ul>
 </nav><section id="hero">
   <div class="hero-tag">Proposta Comercial · Living Moema · 2026</div>
-  <h1 class="hero-title">TRACKFY<span class="x"> × </span>LIVING</h1>
+  <h1 class="hero-title">TRACKFY<br><span class="x">×</span><br>LIVING</h1>
   <p class="hero-sub">O canal que leva o Home &amp; Stay a quem investe em São Paulo — via Wi-Fi do transporte público, com qualificação integrada ao CRM.</p>
   <div class="hero-logos">
     <div class="hero-trackfy"><div class="nav-bars" style="gap:2px;align-items:flex-end;display:flex;"><div style="width:4px;height:14px;background:var(--red);opacity:.7;"></div><div style="width:4px;height:11px;background:var(--red);opacity:.7;"></div></div> TRACKFY</div>
     <div class="hero-divider"></div>
-    <svg height="20px" viewBox="0 0 96 37" fill="rgba(78,61,51,.6)" xmlns="http://www.w3.org/2000/svg">
+    <svg height="20px" viewBox="0 0 96 37" fill="rgba(255,255,255,.5)" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_52_4210_2)">
-<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(78,61,51,.6)"/>
-<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(78,61,51,.6)"/>
-<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(78,61,51,.6)"/>
-<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(78,61,51,.6)"/>
-<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(78,61,51,.6)"/>
-<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(78,61,51,.6)"/>
-<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(78,61,51,.6)"/>
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(255,255,255,.5)"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(255,255,255,.5)"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(255,255,255,.5)"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(255,255,255,.5)"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(255,255,255,.5)"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(255,255,255,.5)"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(255,255,255,.5)"/>
 </g>
 <defs>
 <clipPath id="clip0_52_4210_2">
-<rect height="20px" fill="rgba(78,61,51,.6)"/>
+<rect height="20px" fill="rgba(255,255,255,.5)"/>
 </clipPath>
 </defs>
 </svg>
 
   </div>
   <div class="scroll-hint">scroll</div>
-</section><section id="canal" style="padding:96px 48px;background:var(--bg);">
+</section><section id="canal" style="padding:96px 48px;background:var(--white);">
   <div class="section-inner">
     <div class="sec-label">01 — O canal</div>
     <h2>Wi-Fi como mídia<br>de performance</h2>
+    <p style="font-size:16px;color:var(--dim);max-width:580px;line-height:1.7;margin-bottom:0;">Cada conexão na L5 Lilás é uma janela de captação: identidade da Living, formulário qualificado e lead entregue direto no CRM.</p>
     <div class="two-col">
       <div class="feat-list">
         <div class="feat-item"><span class="feat-num">01</span><div><div class="feat-title">Alcance na zona sul</div><div class="feat-desc">A L5 Lilás conecta Eucaliptos, Moema, Campo Belo e Brooklin — bairros de renda alta no entorno direto do empreendimento.</div></div></div>
         <div class="feat-item"><span class="feat-num">02</span><div><div class="feat-title">Qualificação no ponto de contato</div><div class="feat-desc">O formulário coleta capacidade de investimento e prazo antes de entregar o lead. Só chegam ao CRM contatos com perfil compatível.</div></div></div>
         <div class="feat-item"><span class="feat-num">03</span><div><div class="feat-title">Entrega direta no CRM Living</div><div class="feat-desc">Integração via webhook com identificação de origem por criativo. O time comercial recebe leads com dados de qualificação preservados.</div></div></div>
-      </div>
-      <div class="flow">
-        <div class="fnode"><span class="fnode-name">CRIATIVO</span><span class="fnode-role">L5 Lilás</span></div>
-        <span class="farrow">→</span>
-        <div class="fnode"><span class="fnode-name">WI-FI</span><span class="fnode-role">portal captivo</span></div>
-        <span class="farrow">→</span>
-        <div class="fnode active"><span class="fnode-name">FORM</span><span class="fnode-role">qualificação</span></div>
-        <span class="farrow">→</span>
-        <div class="fnode"><span class="fnode-name">CRM</span><span class="fnode-role">Living</span></div>
-      </div>
-    </div>
-  </div>
-</section><section id="audiencia" style="padding:96px 48px;background:var(--white);">
-  <div class="section-inner">
-    <div class="sec-label l5">02 — A audiência</div>
-    <h2>L5 Lilás: o eixo<br>direto de Moema</h2>
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-n l5">4</div><div class="stat-lbl">Estações-âncora</div><div class="stat-sub">Eucaliptos · Moema · Campo Belo · Brooklin</div></div>
-      <div class="stat-card"><div class="stat-n l5">~120k</div><div class="stat-lbl">Acessos / mês</div><div class="stat-sub">Estimativa conservadora nas 4 estações</div></div>
-      <div class="stat-card"><div class="stat-n l5">8 min</div><div class="stat-lbl">Do empreendimento</div><div class="stat-sub">Eucaliptos a pé · Av. Cotovia, Moema</div></div>
-    </div>
-    <div class="callout-dark">
-      <div class="callout-dot" style="background:var(--l5);"></div>
-      <div>
-        <div class="callout-lbl" style="color:var(--l5);">L5 Lilás · ViaMobilidade</div>
-        <div class="callout-title">Eucaliptos + Moema</div>
-        <div class="callout-sub">Brooklin · Campo Belo · Vila Mariana — zona sul, perfil de alto poder aquisitivo</div>
-      </div>
-      <div class="callout-stats">
-        <div><div class="cs-n">8 min</div><div class="cs-l">a pé do<br>empreendimento</div></div>
-        <div><div class="cs-n">L5</div><div class="cs-l">linha mais próxima<br>do Home &amp; Stay</div></div>
-      </div>
-    </div>
-  </div>
-</section><section id="produto" style="padding:96px 48px;background:var(--bg);">
-  <div class="section-inner">
-    <div class="sec-label l5">03 — O produto</div>
-    <h2>Home &amp; Stay<br>Moema</h2>
-    <p style="font-size:15px;color:var(--dim);margin-bottom:48px;max-width:560px;">Av. Cotovia, 351. Conceito de moradia e hospedagem com conveniências e bem-estar no coração de Moema.</p>
-    <div class="two-col">
-      <div>
-        <h3 style="margin-bottom:16px;">Tipologias</h3>
-        <div style="display:flex;flex-direction:column;gap:0;">
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);"><span style="font-size:13px;font-weight:600;">R2V</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">22–54 m²</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);"><span style="font-size:13px;font-weight:600;">HIS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">24–33 m²</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;"><span style="font-size:13px;font-weight:600;">HMP</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);">24–27 m²</span></div>
-        </div>
-        <h3 style="margin-top:32px;margin-bottom:12px;">Infraestrutura</h3>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="chip">Piscina coberta</span><span class="chip">Academia</span><span class="chip">Sauna</span><span class="chip">Coworking</span><span class="chip">Rooftop</span><span class="chip">Lavanderia</span><span class="chip">Mini market</span></div>
-      </div>
-      <div class="dist-card">
-        <div class="dist-head"><h3>Localização</h3><p>Tempos estimados · estudo abr/2026</p></div>
-        <div>
-          <div class="dist-item"><span class="dist-label">Parque Ibirapuera</span><span class="dist-time dft">6 min de carro</span></div>
-          <div class="dist-item"><span class="dist-label">Estação Eucaliptos (L5)</span><span class="dist-time l5">8 min a pé</span></div>
-          <div class="dist-item"><span class="dist-label">Shopping Ibirapuera</span><span class="dist-time dft">11 min a pé</span></div>
-          <div class="dist-item"><span class="dist-label">Aeroporto de Congonhas</span><span class="dist-time dft">8 min de carro</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section><section id="criativos" style="padding:96px 48px;background:var(--liv-lt);border-top:1px solid rgba(196,183,178,.4);border-bottom:1px solid rgba(196,183,178,.4);">
-  <div class="section-inner">
-    <div class="sec-label liv">04 — Estratégia criativa</div>
-    <h2>Dois ganchos,<br>um funil</h2>
-    <p style="font-size:15px;color:var(--dim);max-width:560px;">A campanha testa dois argumentos distintos na L5. O formulário e a entrega ao CRM são os mesmos — o que varia é a mensagem de entrada.</p>
-    <div class="criativos-grid">
-      <div class="cri-card a">
-        <div class="cri-tag">Gancho A · Patrimônio</div>
-        <h3>Diversificar com um endereço em Moema</h3>
-        <p class="cri-desc">Para o empresário ou investidor que analisa imóveis como parte do portfólio. O argumento é localização, renda de locação e valorização em um dos bairros mais consolidados de SP.</p>
-      </div>
-      <div class="cri-card b">
-        <div class="cri-tag">Gancho B · Base em SP</div>
-        <h3>Parar de depender de hotel</h3>
-        <p class="cri-desc">Para quem frequenta SP a negócios e quer conciliar uso pessoal e renda de locação. O argumento é conveniência, custo de oportunidade e retorno sobre um ativo que trabalha quando você não está.</p>
-      </div>
-    </div>
-    <div class="cpl-bar">
-      <div>
-        <div class="cpl-lbl">Custo por lead qualificado</div>
-        <div class="cpl-val">R$ 38</div>
-        <div class="cpl-lbl">capacidade ≥ R$500k · ciclo 90 dias</div>
-      </div>
-      <div style="margin-left:auto;text-align:right;">
-        <div class="cpl-lbl">Funil único</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:4px;">Dois criativos → mesmo formulário → CRM Living</div>
-      </div>
-    </div>
-  </div>
-</section><section id="qualificacao" style="padding:96px 48px;background:var(--white);">
-  <div class="section-inner">
-    <div class="sec-label">05 — A qualificação</div>
-    <h2>Do Wi-Fi ao<br>lead qualificado</h2>
-    <div class="two-col">
-      <div class="feat-list" style="margin-top:12px;">
-        <div class="feat-item"><span class="feat-num">01</span><div><div class="feat-title">Capacidade de investimento</div><div class="feat-desc">O formulário confirma faixa de capacidade antes de liberar o acesso. Leads abaixo do perfil não avançam.</div></div></div>
-        <div class="feat-item"><span class="feat-num">02</span><div><div class="feat-title">Prazo de aquisição</div><div class="feat-desc">Intenção de compra em até 12 meses identifica leads ativos para priorização no atendimento comercial.</div></div></div>
-        <div class="feat-item"><span class="feat-num">03</span><div><div class="feat-title">WhatsApp confirmado</div><div class="feat-desc">Campo de confirmação reduz impacto de números preenchidos automaticamente. O time recebe contatos válidos.</div></div></div>
-        <div class="feat-item"><span class="feat-num">04</span><div><div class="feat-title">Origem rastreável por criativo</div><div class="feat-desc">Cada lead chega com identificação de qual gancho gerou o contato — patrimônio ou base em SP.</div></div></div>
       </div>
       <div class="sim-wrap" onclick="event.stopPropagation()">
         <div class="sim-top">Jornada no portal Wi-Fi</div>
@@ -435,13 +339,112 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
         </div>
       </div>
     </div>
+    <div class="flow">
+      <div class="fnode"><span class="fnode-name">CRIATIVO</span><span class="fnode-role">L5 Lilás</span></div>
+      <span class="farrow">→</span>
+      <div class="fnode"><span class="fnode-name">WI-FI</span><span class="fnode-role">portal captivo</span></div>
+      <span class="farrow">→</span>
+      <div class="fnode active"><span class="fnode-name">FORM</span><span class="fnode-role">qualificação</span></div>
+      <span class="farrow">→</span>
+      <div class="fnode"><span class="fnode-name">CRM</span><span class="fnode-role">Living</span></div>
+    </div>
   </div>
 </section>
 <script>
 var lvC=1,LV=4;
 function lvGo(n){document.getElementById('lv-t'+lvC).classList.remove('active');document.getElementById('lv-d'+lvC).classList.remove('active');lvC=n;document.getElementById('lv-t'+lvC).classList.add('active');document.getElementById('lv-d'+lvC).classList.add('active');document.getElementById('lv-prev').disabled=lvC===1;document.getElementById('lv-next').disabled=lvC===LV;}
 function lvNav(d){var n=lvC+d;if(n>=1&&n<=LV)lvGo(n);}
-</script><section id="fluxo">
+</script><section id="audiencia" style="padding:96px 48px;background:var(--bg);">
+  <div class="section-inner">
+    <div class="sec-label l5">02 — A audiência</div>
+    <h2>L5 Lilás: o eixo<br>direto de Moema</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-n l5">4</div><div class="stat-lbl">Estações-âncora</div><div class="stat-sub">Eucaliptos · Moema · Campo Belo · Brooklin</div></div>
+      <div class="stat-card"><div class="stat-n l5">~120k</div><div class="stat-lbl">Acessos / mês</div><div class="stat-sub">Estimativa conservadora nas 4 estações</div></div>
+      <div class="stat-card"><div class="stat-n l5">8 min</div><div class="stat-lbl">Do empreendimento</div><div class="stat-sub">Eucaliptos a pé · Av. Cotovia, Moema</div></div>
+    </div>
+    <div class="callout-dark">
+      <div class="callout-dot" style="background:var(--l5);"></div>
+      <div>
+        <div class="callout-lbl" style="color:var(--l5);">L5 Lilás · ViaMobilidade</div>
+        <div class="callout-title">Eucaliptos + Moema</div>
+        <div class="callout-sub">Brooklin · Campo Belo · Vila Mariana — zona sul, perfil de alto poder aquisitivo</div>
+      </div>
+      <div class="callout-stats">
+        <div><div class="cs-n">8 min</div><div class="cs-l">a pé do<br>empreendimento</div></div>
+        <div><div class="cs-n">L5</div><div class="cs-l">linha mais próxima<br>do Home &amp; Stay</div></div>
+      </div>
+    </div>
+  </div>
+</section><section id="produto" style="padding:96px 48px;background:var(--white);">
+  <div class="section-inner">
+    <div class="sec-label l5">03 — O produto</div>
+    <h2>Home &amp; Stay<br>Moema</h2>
+    <p style="font-size:16px;color:var(--dim);margin-bottom:48px;max-width:560px;">Av. Cotovia, 351. Conceito de moradia e hospedagem com conveniências e bem-estar no coração de Moema.</p>
+    <div class="two-col">
+      <div>
+        <h3 style="margin-bottom:16px;">Tipologias</h3>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);"><span style="font-size:15px;font-weight:600;">R2V</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">22–54 m²</span></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);"><span style="font-size:15px;font-weight:600;">HIS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">24–33 m²</span></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 0;"><span style="font-size:15px;font-weight:600;">HMP</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);">24–27 m²</span></div>
+        </div>
+        <h3 style="margin-top:32px;margin-bottom:12px;">Infraestrutura</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="chip">Piscina coberta</span><span class="chip">Academia</span><span class="chip">Sauna</span><span class="chip">Coworking</span><span class="chip">Rooftop</span><span class="chip">Lavanderia</span><span class="chip">Mini market</span></div>
+      </div>
+      <div class="dist-card">
+        <div class="dist-head"><h3>Localização</h3><p>Tempos estimados · estudo abr/2026</p></div>
+        <div>
+          <div class="dist-item"><span class="dist-label">Parque Ibirapuera</span><span class="dist-time dft">6 min de carro</span></div>
+          <div class="dist-item"><span class="dist-label">Estação Eucaliptos (L5)</span><span class="dist-time l5">8 min a pé</span></div>
+          <div class="dist-item"><span class="dist-label">Shopping Ibirapuera</span><span class="dist-time dft">11 min a pé</span></div>
+          <div class="dist-item"><span class="dist-label">Aeroporto de Congonhas</span><span class="dist-time dft">8 min de carro</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section id="criativos" style="padding:96px 48px;background:var(--liv-lt);border-top:1px solid rgba(196,183,178,.4);border-bottom:1px solid rgba(196,183,178,.4);">
+  <div class="section-inner">
+    <div class="sec-label liv">04 — Estratégia criativa</div>
+    <h2>Dois ganchos,<br>um funil</h2>
+    <p style="font-size:16px;color:var(--dim);max-width:560px;">A campanha testa dois argumentos distintos na L5. O formulário e a entrega ao CRM são os mesmos — o que varia é a mensagem de entrada.</p>
+    <div class="criativos-grid">
+      <div class="cri-card a">
+        <div class="cri-tag">Gancho A · Patrimônio</div>
+        <h3>Diversificar com um endereço em Moema</h3>
+        <p class="cri-desc">Para o empresário ou investidor que analisa imóveis como parte do portfólio. O argumento é localização, renda de locação e valorização em um dos bairros mais consolidados de SP.</p>
+      </div>
+      <div class="cri-card b">
+        <div class="cri-tag">Gancho B · Base em SP</div>
+        <h3>Parar de depender de hotel</h3>
+        <p class="cri-desc">Para quem frequenta SP a negócios e quer conciliar uso pessoal e renda de locação. O argumento é conveniência, custo de oportunidade e retorno sobre um ativo que trabalha quando você não está.</p>
+      </div>
+    </div>
+    <div class="cpl-bar">
+      <div>
+        <div class="cpl-lbl">Custo por lead qualificado</div>
+        <div class="cpl-val">R$ 38</div>
+        <div class="cpl-lbl">capacidade ≥ R$500k · ciclo 90 dias</div>
+      </div>
+      <div style="margin-left:auto;text-align:right;">
+        <div class="cpl-lbl">Funil único</div>
+        <div style="font-size:15px;color:rgba(255,255,255,.5);margin-top:4px;">Dois criativos → mesmo formulário → CRM Living</div>
+      </div>
+    </div>
+  </div>
+</section><section id="qualificacao" style="padding:96px 48px;background:var(--bg);">
+  <div class="section-inner">
+    <div class="sec-label">05 — A qualificação</div>
+    <h2>Como o formulário<br>filtra o lead</h2>
+    <p style="font-size:16px;color:var(--dim);max-width:560px;margin-bottom:0;">Quatro critérios aplicados no portal antes de liberar a conexão. Leads fora do perfil não avançam.</p>
+    <div class="feat-list" style="margin-top:12px;">
+      <div class="feat-item"><span class="feat-num">01</span><div><div class="feat-title">Capacidade de investimento</div><div class="feat-desc">O formulário confirma faixa de capacidade antes de liberar o acesso. Leads abaixo do perfil (< R$500k) não avançam.</div></div></div>
+      <div class="feat-item"><span class="feat-num">02</span><div><div class="feat-title">Prazo de aquisição</div><div class="feat-desc">Intenção de compra em até 12 meses identifica leads ativos para priorização no atendimento comercial.</div></div></div>
+      <div class="feat-item"><span class="feat-num">03</span><div><div class="feat-title">WhatsApp confirmado</div><div class="feat-desc">Campo de confirmação reduz impacto de números preenchidos automaticamente. O time recebe contatos válidos.</div></div></div>
+      <div class="feat-item"><span class="feat-num">04</span><div><div class="feat-title">Origem rastreável por criativo</div><div class="feat-desc">Cada lead chega com identificação de qual gancho gerou o contato — patrimônio ou base em SP.</div></div></div>
+    </div>
+  </div>
+</section><section id="fluxo">
   <div class="section-inner">
     <div class="sec-label">06 — O fluxo</div>
     <h2>Como funciona<br>na prática</h2>
