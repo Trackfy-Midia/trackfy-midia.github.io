@@ -107,7 +107,7 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .cpl-val { font-family:'Barlow Condensed',sans-serif; font-size:40px; font-weight:900; color:var(--white); line-height:1; }
 .cpl-lbl { font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(255,255,255,.4); letter-spacing:.06em; text-transform:uppercase; margin-top:4px; }
 /* PHONE */
-.sim-wrap  { display:flex; flex-direction:column; align-items:center; gap:20px; position:sticky; top:80px; align-self:center; }
+.sim-wrap  { display:flex; flex-direction:column; align-items:center; gap:20px; position:sticky; top:80px; }
 .sim-top   { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--l5); }
 .phone-frame { width:280px; height:560px; background:#1C1C1E; border-radius:40px; padding:12px; box-shadow:0 24px 64px rgba(0,0,0,.18),0 0 0 1px rgba(255,255,255,.06); position:relative; }
 .phone-frame::before { content:''; position:absolute; top:12px; left:50%; transform:translateX(-50%); width:78px; height:22px; background:#1C1C1E; border-radius:0 0 14px 14px; z-index:10; }
@@ -200,14 +200,16 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
   <div class="scroll-hint">scroll</div>
 </section><section id="canal" style="padding:96px 48px;background:var(--white);">
   <div class="section-inner">
-    <div class="sec-label">01 — O canal</div>
-    <h2>Wi-Fi como mídia<br>de performance</h2>
-    <p style="font-size:16px;color:var(--dim);max-width:580px;line-height:1.7;margin-bottom:0;">Cada conexão na L5 Lilás é uma janela de captação: identidade da Living, formulário qualificado e lead entregue direto no CRM.</p>
-    <div class="two-col">
-      <div class="feat-list">
+    <div class="two-col" style="margin-top:0;align-items:center;">
+      <div>
+        <div class="sec-label">01 — O canal</div>
+        <h2>Wi-Fi como mídia<br>de performance</h2>
+        <p style="font-size:16px;color:var(--dim);max-width:580px;line-height:1.7;margin-bottom:0;">Cada conexão na L5 Lilás é uma janela de captação: identidade da Living, formulário qualificado e lead entregue direto no CRM.</p>
+        <div class="feat-list">
         <div class="feat-item"><span class="feat-num">01</span><div><div class="feat-title">Alcance na zona sul</div><div class="feat-desc">A L5 Lilás conecta Eucaliptos, Moema, Campo Belo e Brooklin — bairros de renda alta no entorno direto do empreendimento.</div></div></div>
         <div class="feat-item"><span class="feat-num">02</span><div><div class="feat-title">Qualificação no ponto de contato</div><div class="feat-desc">O formulário coleta capacidade de investimento e prazo antes de entregar o lead. Só chegam ao CRM contatos com perfil compatível.</div></div></div>
         <div class="feat-item"><span class="feat-num">03</span><div><div class="feat-title">Entrega direta no CRM Living</div><div class="feat-desc">Integração via webhook com identificação de origem por criativo. O time comercial recebe leads com dados de qualificação preservados.</div></div></div>
+        </div>
       </div>
       <div class="sim-wrap" onclick="event.stopPropagation()">
         <div class="sim-top">Jornada no portal Wi-Fi</div>
