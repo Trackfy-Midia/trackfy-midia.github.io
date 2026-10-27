@@ -108,6 +108,9 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .cpl-lbl { font-family:'IBM Plex Mono',monospace; font-size:13px; color:rgba(255,255,255,.4); letter-spacing:.06em; text-transform:uppercase; margin-top:4px; }
 /* PHONE */
 .sim-wrap  { display:flex; flex-direction:column; align-items:center; gap:20px; position:sticky; top:80px; }
+.phone-nav-wrap { display:flex; align-items:center; gap:20px; }
+.nav-btn { width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:var(--white); cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.nav-btn:disabled { opacity:.3; cursor:default; }
 .sim-top   { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--l5); }
 .phone-frame { width:280px; height:560px; background:#1C1C1E; border-radius:40px; padding:12px; box-shadow:0 24px 64px rgba(0,0,0,.18),0 0 0 1px rgba(255,255,255,.06); position:relative; }
 .phone-frame::before { content:''; position:absolute; top:12px; left:50%; transform:translateX(-50%); width:78px; height:22px; background:#1C1C1E; border-radius:0 0 14px 14px; z-index:10; }
@@ -158,6 +161,10 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
   .hero-sub { font-size:15px; }
   .sim-wrap { width:100%; align-items:center; justify-content:center; margin:0 auto; }
   .phone-frame { width:280px; height:560px; flex-shrink:0; }
+  .phone-nav-wrap { position:relative; gap:0; }
+  .nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:20; background:rgba(255,255,255,.9); box-shadow:0 2px 8px rgba(0,0,0,.15); }
+  #lv-prev2 { left:-18px; }
+  #lv-next2 { right:-18px; }
   .callout-dark { padding:20px; }
   .stats-grid,.criativos-grid { gap:1px; }
   .stats-grid { grid-template-columns:1fr; }
@@ -240,7 +247,7 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
       </div>
       <div class="sim-wrap" id="lv2-wrap">
         <div class="sim-label-top" id="lv-step-label">LIVING · L5 LILÁS</div>
-        <div style="display:flex;align-items:center;gap:20px;">
+        <div class="phone-nav-wrap">
           <button class="nav-btn" id="lv-prev2" onclick="lvNav2(-1)" disabled>&#8592;</button>
           <div class="phone-frame">
             <div class="phone-screen">
