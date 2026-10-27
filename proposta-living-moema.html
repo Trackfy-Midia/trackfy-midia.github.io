@@ -9,7 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --liv:    #1E3A2F; --liv-md: #2A6645; --liv-lt: rgba(30,58,47,.08);
+  --liv:    #C4B7B2; --liv-md: #4E3D33; --liv-lt: rgba(196,183,178,.2);
+  --fc-azul:#A0CAD4; --fc-verde:#C6D4C9; --fc-laranja:#F5B296;
   --l5:     #8C4799; --l5-lt:  rgba(140,71,153,.08);
   --bg:     #F0EDE8; --surface:#E8E4DE; --border: #D8D4CE;
   --black:  #111111; --red:    #E52420; --muted:  #888880; --dim: #66665F; --white:#FFFFFF;
@@ -21,7 +22,7 @@ body { background:var(--bg); color:var(--black); font-family:'Barlow',sans-serif
 .sec-label { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:10px; margin-bottom:14px; }
 .sec-label::before { content:''; display:inline-block; width:16px; height:2px; background:currentColor; }
 .sec-label.l5  { color:var(--l5); }
-.sec-label.liv { color:var(--liv-md); }
+.sec-label.liv { color:var(--liv-md); } /* --liv-md = dark fendi #4E3D33 */
 h2 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(40px,5.5vw,66px); font-weight:800; line-height:1.05; letter-spacing:-.01em; margin-bottom:20px; }
 h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; margin-bottom:6px; }
 /* NAV */
@@ -37,16 +38,16 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .nav-links a:hover { color:var(--white); }
 /* HERO */
 #hero { min-height:100vh; background:var(--liv); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 48px 60px; position:relative; overflow:hidden; }
-#hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 55% at 50% 60%, rgba(42,102,69,.25) 0%, transparent 70%); pointer-events:none; }
-.hero-tag { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); border:1px solid rgba(255,255,255,.12); padding:5px 14px; border-radius:2px; margin-bottom:36px; }
-.hero-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(60px,9vw,120px); font-weight:900; line-height:.95; letter-spacing:-.02em; color:var(--white); margin-bottom:32px; text-transform:uppercase; }
+#hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 55% at 50% 60%, rgba(196,183,178,.35) 0%, transparent 70%); pointer-events:none; }
+.hero-tag { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(78,61,51,.5); border:1px solid rgba(78,61,51,.2); padding:5px 14px; border-radius:2px; margin-bottom:36px; }
+.hero-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(60px,9vw,120px); font-weight:900; line-height:.95; letter-spacing:-.02em; color:var(--liv-md); margin-bottom:32px; text-transform:uppercase; }
 .hero-title .x { color:var(--l5); }
-.hero-sub { font-size:clamp(14px,1.6vw,17px); color:rgba(255,255,255,.55); max-width:560px; margin:0 auto 48px; line-height:1.7; }
+.hero-sub { font-size:clamp(14px,1.6vw,17px); color:rgba(78,61,51,.65); max-width:560px; margin:0 auto 48px; line-height:1.7; }
 .hero-logos { display:flex; align-items:center; justify-content:center; gap:28px; margin-top:16px; }
-.hero-trackfy { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:10px; }
-.hero-divider { width:1px; height:24px; background:rgba(255,255,255,.2); }
-.scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(255,255,255,.25); letter-spacing:.12em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:8px; }
-.scroll-hint::after { content:''; width:1px; height:28px; background:rgba(255,255,255,.2); }
+.hero-trackfy { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; color:rgba(78,61,51,.5); display:flex; align-items:center; gap:10px; }
+.hero-divider { width:1px; height:24px; background:rgba(78,61,51,.2); }
+.scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(78,61,51,.3); letter-spacing:.12em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.scroll-hint::after { content:''; width:1px; height:28px; background:rgba(78,61,51,.2); }
 /* STATS */
 .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border-radius:12px; overflow:hidden; margin:48px 0; }
 .stat-card { background:var(--white); padding:40px 32px; text-align:center; }
@@ -76,13 +77,13 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 .fnode { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; text-align:center; }
 .fnode-name { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--white); letter-spacing:.06em; font-weight:600; }
 .fnode-role { font-size:10px; color:rgba(255,255,255,.35); }
-.fnode.active .fnode-name { color:var(--liv-md); }
+.fnode.active .fnode-name { color:var(--fc-azul); }
 .farrow { font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--red); padding:0 4px; flex-shrink:0; }
 /* PRODUCT SECTION */
 .dist-card { background:var(--white); border-radius:12px; border:1px solid var(--border); overflow:hidden; }
-.dist-head { background:var(--liv); padding:20px 24px; }
-.dist-head h3 { color:var(--white); font-size:18px; }
-.dist-head p  { font-size:12px; color:rgba(255,255,255,.6); margin-top:4px; }
+.dist-head { background:var(--liv); padding:20px 24px; border-bottom:2px solid var(--liv-md); }
+.dist-head h3 { color:var(--liv-md); font-size:18px; }
+.dist-head p  { font-size:12px; color:rgba(78,61,51,.6); margin-top:4px; }
 .dist-item { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:1px solid var(--border); }
 .dist-item:last-child { border-bottom:none; }
 .dist-label { font-size:13px; font-weight:500; }
@@ -93,15 +94,15 @@ h3 { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700;
 /* CRIATIVOS */
 .criativos-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
 .cri-card { border-radius:12px; padding:32px; }
-.cri-card.a { background:var(--liv); }
+.cri-card.a { background:var(--liv); border:1px solid rgba(78,61,51,.15); }
 .cri-card.b { background:var(--l5-lt); border:1px solid rgba(140,71,153,.2); }
 .cri-tag  { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; margin-bottom:12px; }
-.cri-card.a .cri-tag  { color:rgba(255,255,255,.5); }
+.cri-card.a .cri-tag  { color:rgba(78,61,51,.5); }
 .cri-card.b .cri-tag  { color:var(--l5); }
-.cri-card.a h3 { color:var(--white); font-size:20px; }
+.cri-card.a h3 { color:var(--liv-md); font-size:20px; }
 .cri-card.b h3 { color:var(--l5); font-size:20px; }
 .cri-desc { font-size:13px; line-height:1.65; margin-top:10px; }
-.cri-card.a .cri-desc { color:rgba(255,255,255,.75); }
+.cri-card.a .cri-desc { color:rgba(78,61,51,.75); }
 .cri-card.b .cri-desc { color:var(--dim); }
 .cpl-bar { margin-top:16px; background:var(--black); border-radius:10px; padding:20px 28px; display:flex; align-items:center; gap:20px; }
 .cpl-val { font-family:'Barlow Condensed',sans-serif; font-size:40px; font-weight:900; color:var(--white); line-height:1; }
@@ -163,7 +164,7 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
     Object.assign(o.style,{position:'fixed',inset:'0',background:'#0a0a0a',display:'flex',alignItems:'center',justifyContent:'center',zIndex:'99999'});
     document.body.appendChild(o);
     var s=document.createElement('style');
-    s.textContent='#ab{background:#111;border:1px solid #333;border-radius:12px;padding:40px 36px;width:320px;text-align:center;font-family:sans-serif}#at{color:#fff;font-size:18px;font-weight:600;margin-bottom:6px}#as{color:#888;font-size:13px;margin-bottom:24px}#ai{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:14px;outline:none;margin-bottom:12px;box-sizing:border-box}#ai:focus{border-color:#2A6645}#ab2{width:100%;padding:10px;border-radius:8px;background:#2A6645;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer}#ab2:hover{opacity:.85}#ae{color:#e52420;font-size:12px;margin-top:10px;min-height:18px}';
+    s.textContent='#ab{background:#111;border:1px solid #333;border-radius:12px;padding:40px 36px;width:320px;text-align:center;font-family:sans-serif}#at{color:#fff;font-size:18px;font-weight:600;margin-bottom:6px}#as{color:#888;font-size:13px;margin-bottom:24px}#ai{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:14px;outline:none;margin-bottom:12px;box-sizing:border-box}#ai:focus{border-color:#C4B7B2}#ab2{width:100%;padding:10px;border-radius:8px;background:#4E3D33;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer}#ab2:hover{opacity:.85}#ae{color:#e52420;font-size:12px;margin-top:10px;min-height:18px}';
     document.head.appendChild(s);
     function tr(){var p=document.getElementById('ai').value;chk(p).then(h=>{if(h===H){sessionStorage.setItem('auth_ok',H);o.remove();}else{document.getElementById('ae').textContent='Senha incorreta.';document.getElementById('ai').value='';document.getElementById('ai').focus();}});}
     document.getElementById('ab2').addEventListener('click',tr);
@@ -208,19 +209,19 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
   <div class="hero-logos">
     <div class="hero-trackfy"><div class="nav-bars" style="gap:2px;align-items:flex-end;display:flex;"><div style="width:4px;height:14px;background:var(--red);opacity:.7;"></div><div style="width:4px;height:11px;background:var(--red);opacity:.7;"></div></div> TRACKFY</div>
     <div class="hero-divider"></div>
-    <svg height="20px" viewBox="0 0 96 37" fill="rgba(255,255,255,.5)" xmlns="http://www.w3.org/2000/svg">
+    <svg height="20px" viewBox="0 0 96 37" fill="rgba(78,61,51,.6)" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_52_4210_2)">
-<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(255,255,255,.5)"/>
-<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(255,255,255,.5)"/>
-<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(255,255,255,.5)"/>
-<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(255,255,255,.5)"/>
-<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(255,255,255,.5)"/>
-<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(255,255,255,.5)"/>
-<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(255,255,255,.5)"/>
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="rgba(78,61,51,.6)"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="rgba(78,61,51,.6)"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="rgba(78,61,51,.6)"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="rgba(78,61,51,.6)"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="rgba(78,61,51,.6)"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="rgba(78,61,51,.6)"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="rgba(78,61,51,.6)"/>
 </g>
 <defs>
 <clipPath id="clip0_52_4210_2">
-<rect height="20px" fill="rgba(255,255,255,.5)"/>
+<rect height="20px" fill="rgba(78,61,51,.6)"/>
 </clipPath>
 </defs>
 </svg>
@@ -297,7 +298,7 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
       </div>
     </div>
   </div>
-</section><section id="criativos" style="padding:96px 48px;background:var(--liv-lt);border-top:1px solid rgba(30,58,47,.1);border-bottom:1px solid rgba(30,58,47,.1);">
+</section><section id="criativos" style="padding:96px 48px;background:var(--liv-lt);border-top:1px solid rgba(196,183,178,.4);border-bottom:1px solid rgba(196,183,178,.4);">
   <div class="section-inner">
     <div class="sec-label liv">04 — Estratégia criativa</div>
     <h2>Dois ganchos,<br>um funil</h2>
@@ -343,29 +344,29 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
           <div class="phone-screen">
             <div class="tela active" id="lv-t1">
               <div style="background:var(--liv);padding:40px 20px 20px;text-align:center;">
-                <div style="margin-bottom:10px;"><svg height="18px" viewBox="0 0 96 37" fill="#FCFAF8" xmlns="http://www.w3.org/2000/svg">
+                <div style="margin-bottom:10px;"><svg height="18px" viewBox="0 0 96 37" fill="#4E3D33" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_52_4210_3)">
-<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="#FCFAF8"/>
-<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="#FCFAF8"/>
-<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="#FCFAF8"/>
-<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="#FCFAF8"/>
-<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="#FCFAF8"/>
-<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="#FCFAF8"/>
-<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="#FCFAF8"/>
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="#4E3D33"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="#4E3D33"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="#4E3D33"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="#4E3D33"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="#4E3D33"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="#4E3D33"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="#4E3D33"/>
 </g>
 <defs>
 <clipPath id="clip0_52_4210_3">
-<rect height="18px" fill="#FCFAF8"/>
+<rect height="18px" fill="#4E3D33"/>
 </clipPath>
 </defs>
 </svg>
 </div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;">Wi-Fi Gratuito</div>
-                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:#fff;line-height:1.1;">Home &amp; Stay<br>Moema</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(78,61,51,.5);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;">Wi-Fi Gratuito</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:#4E3D33;line-height:1.1;">Home &amp; Stay<br>Moema</div>
               </div>
               <div style="padding:18px 20px;">
                 <p style="font-size:12px;color:var(--dim);margin-bottom:14px;line-height:1.5;">Conecte-se e conheça uma oportunidade de investimento em Moema.</p>
-                <button onclick="lvGo(2)" style="width:100%;padding:10px;background:var(--liv);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Acessar Wi-Fi →</button>
+                <button onclick="lvGo(2)" style="width:100%;padding:10px;background:#4E3D33;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Acessar Wi-Fi →</button>
               </div>
             </div>
             <div class="tela" id="lv-t2">
@@ -374,7 +375,7 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
                 <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;margin-bottom:18px;">Seus dados</div>
                 <div style="margin-bottom:10px;"><div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Nome completo</div><div style="height:34px;border-radius:6px;border:1px solid var(--border);background:var(--surface);"></div></div>
                 <div style="margin-bottom:18px;"><div style="font-size:11px;color:var(--muted);margin-bottom:4px;">WhatsApp</div><div style="height:34px;border-radius:6px;border:1px solid var(--border);background:var(--surface);"></div></div>
-                <button onclick="lvGo(3)" style="width:100%;padding:10px;background:var(--liv);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Continuar →</button>
+                <button onclick="lvGo(3)" style="width:100%;padding:10px;background:#4E3D33;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Continuar →</button>
               </div>
             </div>
             <div class="tela" id="lv-t3">
@@ -385,7 +386,7 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
                 <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px;">
                   <div style="padding:7px 12px;border-radius:6px;border:1px solid var(--border);font-size:11px;color:var(--dim);">Até R$300k</div>
                   <div style="padding:7px 12px;border-radius:6px;border:1px solid var(--border);font-size:11px;color:var(--dim);">R$300k – R$600k</div>
-                  <div style="padding:7px 12px;border-radius:6px;border:1px solid var(--liv);background:var(--liv-lt);font-size:11px;color:var(--liv);font-weight:600;">Acima de R$600k ✓</div>
+                  <div style="padding:7px 12px;border-radius:6px;border:1px solid var(--liv-md);background:var(--liv-lt);font-size:11px;color:var(--liv-md);font-weight:600;">Acima de R$600k ✓</div>
                 </div>
                 <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Prazo de aquisição</div>
                 <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;">
@@ -393,27 +394,27 @@ footer { padding:24px 48px; background:var(--black); border-top:1px solid rgba(2
                   <div style="padding:5px 9px;border-radius:6px;border:1px solid var(--l5);background:var(--l5-lt);font-size:10px;color:var(--l5);font-weight:600;">3–12 meses ✓</div>
                   <div style="padding:5px 9px;border-radius:6px;border:1px solid var(--border);font-size:10px;color:var(--dim);">+ de 1 ano</div>
                 </div>
-                <button onclick="lvGo(4)" style="width:100%;padding:10px;background:var(--liv);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Enviar →</button>
+                <button onclick="lvGo(4)" style="width:100%;padding:10px;background:#4E3D33;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;">Enviar →</button>
               </div>
             </div>
             <div class="tela" id="lv-t4">
               <div style="padding:44px 20px;text-align:center;">
-                <div style="width:48px;height:48px;background:var(--liv);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:20px;color:#fff;line-height:1;">✓</div>
+                <div style="width:48px;height:48px;background:#4E3D33;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:20px;color:#fff;line-height:1;">✓</div>
                 <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px;">Obrigado!</div>
                 <p style="font-size:12px;color:var(--dim);line-height:1.6;margin-bottom:20px;">Em breve nosso time entra em contato para apresentar o Home &amp; Stay Moema.</p>
-                <svg height="16px" viewBox="0 0 96 37" fill="#FCFAF8" xmlns="http://www.w3.org/2000/svg">
+                <svg height="16px" viewBox="0 0 96 37" fill="#4E3D33" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_52_4210_4)">
-<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="#FCFAF8"/>
-<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="#FCFAF8"/>
-<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="#FCFAF8"/>
-<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="#FCFAF8"/>
-<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="#FCFAF8"/>
-<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="#FCFAF8"/>
-<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="#FCFAF8"/>
+<path d="M26.7411 11.5859V22.7876C26.7411 23.3982 27.1846 23.8936 27.7314 23.8936H34.8208V25.4131H29.0421C26.9276 25.4131 25.2131 23.4983 25.2131 21.1366V11.5838H26.7402L26.7411 11.5859Z" fill="#4E3D33"/>
+<path d="M39.46 11.5859H40.987V25.4141H39.46V11.5859Z" fill="#4E3D33"/>
+<path d="M50.9921 25.4141C50.5069 25.4141 50.0724 25.0805 49.8977 24.575L45.0486 11.5859H46.6752L51.0328 23.2274L55.3578 11.5859H56.9346L52.0855 24.575C51.9117 25.0805 51.4763 25.4141 50.9912 25.4141H50.9921Z" fill="#4E3D33"/>
+<path d="M60.998 11.5859H62.5251V25.4141H60.998V11.5859Z" fill="#4E3D33"/>
+<path d="M68.9438 13.7565V25.4131H67.4167V12.8061C67.4167 12.1318 67.9065 11.5849 68.5102 11.5849C68.837 11.5849 69.1475 11.7486 69.3548 12.0307L77.2697 22.7805V11.5859H78.7968V24.2869C78.7968 24.9096 78.3451 25.4141 77.7875 25.4141C77.4816 25.4141 77.191 25.2584 77 24.9915L68.9438 13.7565Z" fill="#4E3D33"/>
+<path d="M85.2571 13.3066C83.9935 14.6825 83.2974 16.5195 83.2974 18.4808C83.2974 20.4421 83.9935 22.2983 85.2571 23.6813C86.5253 25.0694 88.2261 25.8337 90.0465 25.8337C93.6256 25.8337 95.9999 22.554 95.9999 20.3845V20.1024C95.9999 18.8427 95.0857 17.8206 93.9569 17.8206H90.1913V19.2441L94.7652 19.2259V19.2512C94.7879 20.5331 94.3434 21.7584 93.5152 22.7006C92.6073 23.7339 91.3427 24.3273 90.0456 24.3273C88.6516 24.3273 87.3336 23.7045 86.3325 22.5753C85.3413 21.4561 84.7946 19.9952 84.7946 18.4636C84.7946 15.3245 87.1987 12.6737 90.0456 12.6737C91.378 12.6737 92.5837 13.1944 93.6292 14.2215L94.6267 13.071C93.431 11.8609 91.7627 11.1673 90.0456 11.1673C88.2261 11.1673 86.5253 11.9276 85.2562 13.3086L85.2571 13.3066Z" fill="#4E3D33"/>
+<path d="M0.755834 9.74185C0.271557 10.2827 0 11.0157 0 11.78V22.3033C0 24.9561 1.92534 27.1065 4.30056 27.1065H9.49183L9.47825 -0.00101089L0.755834 9.74185ZM9.49183 27.1075L9.49545 35.0761C9.49545 36.7816 11.3393 37.641 12.4256 36.4409L20.8782 27.1075H9.49183Z" fill="#4E3D33"/>
 </g>
 <defs>
 <clipPath id="clip0_52_4210_4">
-<rect height="16px" fill="#FCFAF8"/>
+<rect height="16px" fill="#4E3D33"/>
 </clipPath>
 </defs>
 </svg>
